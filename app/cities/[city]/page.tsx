@@ -1,0 +1,245 @@
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { notFound } from 'next/navigation';
+import { Header } from '@/components/layout/Header';
+import { CITY_CONTENT } from '@/lib/cityContent';
+import { GUIDE_CITY_SLUGS } from '@/lib/countries';
+import { CheckCircle2, MapPin, Wifi, Shield, Bus, Sun, Monitor, Star, ArrowRight } from 'lucide-react';
+
+interface Props {
+  params: Promise<{ city: string }>;
+}
+
+export async function generateStaticParams() {
+  return GUIDE_CITY_SLUGS.map(slug => ({ city: slug }));
+}
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { city } = await params;
+  const content = CITY_CONTENT[city];
+  if (!content) return {};
+  return {
+    title: `Living in ${content.city} — Cost, Neighbourhoods & Nomad Guide | RelocIQ`,
+    description: content.overview.slice(0, 155),
+    alternates: { canonical: `/cities/${city}` },
+    openGraph: {
+      title: `Living in ${content.city} — Complete City Guide for Expats & Nomads`,
+      description: content.overview.slice(0, 155),
+      type: 'article',
+    },
+  };
+}
+
+export default async function CityPage({ params }: Props) {
+  const { city } = await params;
+  const content = CITY_CONTENT[city];
+  if (!content) notFound();
+
+  const otherCities = GUIDE_CITY_SLUGS
+    .filter(s => s !== city)
+    .slice(0, 8);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Living in ${content.city} — Complete City Guide for Expats & Nomads`,
+    description: content.overview.slice(0, 155),
+    author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
+    publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
+    datePublished: '2024-01-01',
+    url: `https://relociq.com/cities/${city}`,
+  };
+
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+        <Header />
+        <main className="container mx-auto px-4 py-8 max-w-4xl">
+          {/* Hero */}
+          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-8 mb-8 text-white">
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-blue-300 text-sm font-medium uppercase tracking-wide">City Guide</span>
+              <span className="text-slate-500">•</span>
+              <Link
+                href={`/guides/${content.countrySlug}`}
+                className="text-blue-300 text-sm hover:text-white transition-colors"
+              >
+                {content.country} Guide →
+              </Link>
+            </div>
+            <h1 className="text-3xl md:text-4xl font-bold mb-3">
+              Living in {content.city}
+            </h1>
+            <p className="text-blue-100 text-base mb-4">{content.tagline}</p>
+            <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-1.5 bg-amber-500/20 border border-amber-500/30 px-3 py-1 rounded-full">
+                <Star size={13} className="text-amber-400 fill-amber-400" />
+                <span className="text-amber-300 text-sm font-medium">Nomad Score: {content.nomadScore}/10</span>
+              </div>
+              <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full">
+                <MapPin size={13} className="text-blue-300" />
+                <span className="text-blue-200 text-sm">{content.country}</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="grid gap-6">
+            {/* Overview */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-3">City Overview</h2>
+              <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{content.overview}</p>
+            </div>
+
+            {/* Monthly Budget */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Monthly Budget Ranges</h2>
+              <div className="grid grid-cols-3 gap-4">
+                <BudgetCard label="Budget" amount={content.monthlyBudget.budget} color="emerald" />
+                <BudgetCard label="Comfortable" amount={content.monthlyBudget.comfortable} color="blue" />
+                <BudgetCard label="Luxury" amount={content.monthlyBudget.luxury} color="amber" />
+              </div>
+            </div>
+
+            {/* Cost Breakdown */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Cost Breakdown</h2>
+              <div className="space-y-2">
+                {content.costBreakdown.map((row, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-800 last:border-0"
+                  >
+                    <span className="text-sm text-slate-600 dark:text-slate-400">{row.item}</span>
+                    <span className="text-sm font-semibold text-slate-900 dark:text-white">{row.cost}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Best For */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Best For</h2>
+              <div className="flex flex-wrap gap-2">
+                {content.bestFor.map(tag => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1.5 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-700 dark:text-emerald-400 rounded-full text-sm font-medium border border-emerald-200 dark:border-emerald-800"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Neighbourhoods */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Key Neighbourhoods</h2>
+              <div className="space-y-3">
+                {content.neighbourhoods.map(n => (
+                  <div key={n.name} className="flex items-start gap-3">
+                    <MapPin size={15} className="text-blue-500 mt-0.5 shrink-0" />
+                    <div>
+                      <span className="font-semibold text-sm text-slate-900 dark:text-white">{n.name}</span>
+                      <span className="text-sm text-slate-500 dark:text-slate-400"> — {n.vibe}</span>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Practical Info */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Practical Information</h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                <PracticalItem icon={<Sun size={15} />} label="Climate" value={content.practicalInfo.climate} />
+                <PracticalItem icon={<Wifi size={15} />} label="Internet" value={content.practicalInfo.internet} />
+                <PracticalItem icon={<Monitor size={15} />} label="Co-working" value={content.practicalInfo.coworking} />
+                <PracticalItem icon={<Shield size={15} />} label="Safety" value={content.practicalInfo.safety} />
+                <PracticalItem icon={<Bus size={15} />} label="Transport" value={content.practicalInfo.transport} />
+              </div>
+            </div>
+
+            {/* Highlights */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Top Highlights</h2>
+              <ul className="space-y-3">
+                {content.highlights.map((h, i) => (
+                  <li key={i} className="flex items-start gap-3 text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+                    <CheckCircle2 size={16} className="text-emerald-500 mt-0.5 shrink-0" />
+                    {h}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* CTA */}
+            <div className="bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-2xl p-6 text-center">
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                Ready to move to {content.city}?
+              </h3>
+              <p className="text-slate-600 dark:text-slate-400 mb-4 text-sm">
+                Check visa requirements and compare your cost of living instantly.
+              </p>
+              <Link
+                href={`/?destinations=${encodeURIComponent(content.country)}`}
+                className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-xl font-semibold text-sm transition-colors"
+              >
+                Check My Eligibility <ArrowRight size={16} />
+              </Link>
+            </div>
+
+            {/* Also Explore */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h3 className="text-base font-bold text-slate-900 dark:text-white mb-3">Explore Other Cities</h3>
+              <div className="flex flex-wrap gap-2">
+                {otherCities.map(slug => {
+                  const c = CITY_CONTENT[slug];
+                  return (
+                    <Link
+                      key={slug}
+                      href={`/cities/${slug}`}
+                      className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                    >
+                      {c?.city ?? slug}
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </>
+  );
+}
+
+function BudgetCard({ label, amount, color }: { label: string; amount: string; color: 'emerald' | 'blue' | 'amber' }) {
+  const styles = {
+    emerald: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400',
+    blue: 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-400',
+    amber: 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400',
+  };
+  return (
+    <div className={`rounded-xl border p-4 text-center ${styles[color]}`}>
+      <p className="text-xs font-medium uppercase tracking-wide mb-1 opacity-70">{label}</p>
+      <p className="text-xl font-bold">{amount}</p>
+      <p className="text-xs mt-0.5 opacity-60">per month</p>
+    </div>
+  );
+}
+
+function PracticalItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
+  return (
+    <div className="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+      <span className="text-blue-500 mt-0.5 shrink-0">{icon}</span>
+      <div>
+        <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wide mb-0.5">{label}</p>
+        <p className="text-sm text-slate-700 dark:text-slate-300">{value}</p>
+      </div>
+    </div>
+  );
+}

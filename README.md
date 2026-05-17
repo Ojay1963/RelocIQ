@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RelocIQ — Live Smarter. Move Anywhere.
 
-## Getting Started
+Global relocation intelligence tool combining visa eligibility checking with cost of living comparison. Built with Next.js 14, TypeScript, Tailwind CSS, shadcn/ui, Framer Motion, Prisma + SQLite, and the Anthropic Claude API.
 
-First, run the development server:
+## Quick Start
 
+### 1. Install dependencies
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Configure environment variables
+Edit `.env.local` and add your keys:
+```
+ANTHROPIC_API_KEY=your_actual_anthropic_api_key
+DATABASE_URL="file:./dev.db"
+ADMIN_PASSWORD=your_secure_password
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 3. Run database migrations
+```bash
+npx prisma migrate dev --name init
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 4. Start the development server
+```bash
+npm run dev
+```
 
-## Learn More
+Open [http://localhost:3000](http://localhost:3000).
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Visa Intelligence** — Real-time visa requirements via Claude AI for any passport/destination combo
+- **Cost of Living** — Side-by-side cost breakdown with lifestyle score relative to income
+- **Multi-destination** — Compare up to 3 destinations simultaneously
+- **Shareable reports** — URL encodes all inputs for bookmarkable, shareable reports
+- **SEO Guide Pages** — Static pages for 20 popular destinations with JSON-LD schema
+- **Lead capture** — Email capture with SQLite storage via Prisma
+- **Admin dashboard** — Password-protected leads table at `/admin/leads`
+- **Dark mode** — Full dark mode support via Tailwind
 
-## Deploy on Vercel
+## Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Route | Description |
+|-------|-------------|
+| `/` | Main relocation report tool |
+| `/guides/[country]` | SEO guide pages (20 countries) |
+| `/admin/leads?password=xxx` | View collected email leads |
+| `/api/visa` | POST — visa intelligence via Claude |
+| `/api/compare` | POST — cost of living via Claude |
+| `/api/leads` | POST — save lead to SQLite |
+| `/sitemap.xml` | Auto-generated sitemap |
+| `/robots.txt` | SEO robots configuration |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tech Stack
+
+- **Framework**: Next.js 14 (App Router)
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS + shadcn/ui
+- **Animations**: Framer Motion
+- **Database**: Prisma + SQLite
+- **AI**: Anthropic Claude API (`claude-sonnet-4-20250514`)
+- **Icons**: Lucide React
+
+## Getting an Anthropic API Key
+
+1. Visit [console.anthropic.com](https://console.anthropic.com)
+2. Create an account and generate an API key
+3. Add it to `.env.local` as `ANTHROPIC_API_KEY`
