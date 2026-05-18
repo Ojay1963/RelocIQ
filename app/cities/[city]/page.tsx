@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
 import { CITY_CONTENT } from '@/lib/cityContent';
 import { GUIDE_CITY_SLUGS } from '@/lib/countries';
+import { getCityPhoto } from '@/lib/photos';
 import { CheckCircle2, MapPin, Wifi, Shield, Bus, Sun, Monitor, Star, ArrowRight } from 'lucide-react';
 
 interface Props {
@@ -35,6 +37,8 @@ export default async function CityPage({ params }: Props) {
   const content = CITY_CONTENT[city];
   if (!content) notFound();
 
+  const heroPhoto = getCityPhoto(city, 1200, 400);
+
   const otherCities = GUIDE_CITY_SLUGS
     .filter(s => s !== city)
     .slice(0, 8);
@@ -58,34 +62,37 @@ export default async function CityPage({ params }: Props) {
       />
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
         <Header />
-        <main className="container mx-auto px-4 py-8 max-w-4xl">
-          {/* Hero */}
-          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-8 mb-8 text-white">
-            <div className="flex items-center gap-2 mb-2">
-              <span className="text-blue-300 text-sm font-medium uppercase tracking-wide">City Guide</span>
-              <span className="text-slate-500">•</span>
-              <Link
-                href={`/guides/${content.countrySlug}`}
-                className="text-blue-300 text-sm hover:text-white transition-colors"
-              >
-                {content.country} Guide →
-              </Link>
-            </div>
-            <h1 className="text-3xl md:text-4xl font-bold mb-3">
-              Living in {content.city}
-            </h1>
-            <p className="text-blue-100 text-base mb-4">{content.tagline}</p>
-            <div className="flex items-center gap-2 flex-wrap">
-              <div className="flex items-center gap-1.5 bg-amber-500/20 border border-amber-500/30 px-3 py-1 rounded-full">
-                <Star size={13} className="text-amber-400 fill-amber-400" />
-                <span className="text-amber-300 text-sm font-medium">Nomad Score: {content.nomadScore}/10</span>
+
+        {/* Hero photo */}
+        <div className="relative h-56 md:h-72 w-full overflow-hidden">
+          <Image src={heroPhoto} alt={`Living in ${content.city}`} fill className="object-cover" priority unoptimized />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <div className="container mx-auto max-w-4xl">
+              <div className="flex items-center gap-2 mb-2">
+                <span className="text-blue-300 text-sm font-medium uppercase tracking-wide">City Guide</span>
+                <span className="text-slate-400">•</span>
+                <Link href={`/guides/${content.countrySlug}`} className="text-blue-300 text-sm hover:text-white transition-colors">
+                  {content.country} Guide →
+                </Link>
               </div>
-              <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full">
-                <MapPin size={13} className="text-blue-300" />
-                <span className="text-blue-200 text-sm">{content.country}</span>
+              <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">Living in {content.city}</h1>
+              <p className="text-blue-100 text-sm mb-3">{content.tagline}</p>
+              <div className="flex items-center gap-2 flex-wrap">
+                <div className="flex items-center gap-1.5 bg-amber-500/20 border border-amber-500/30 px-3 py-1 rounded-full">
+                  <Star size={13} className="text-amber-400 fill-amber-400" />
+                  <span className="text-amber-300 text-sm font-medium">Nomad Score: {content.nomadScore}/10</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full">
+                  <MapPin size={13} className="text-blue-300" />
+                  <span className="text-blue-200 text-sm">{content.country}</span>
+                </div>
               </div>
             </div>
           </div>
+        </div>
+
+        <main className="container mx-auto px-4 py-8 max-w-4xl">
 
           <div className="grid gap-6">
             {/* Overview */}

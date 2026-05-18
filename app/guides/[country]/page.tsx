@@ -1,9 +1,11 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
 import { GUIDE_CONTENT } from '@/lib/guideContent';
 import { GUIDE_COUNTRIES } from '@/lib/countries';
+import { getCountryPhoto } from '@/lib/photos';
 import { CheckCircle2, MapPin, ArrowRight } from 'lucide-react';
 
 interface Props {
@@ -37,6 +39,8 @@ export default async function GuidePage({ params }: Props) {
   const guide = GUIDE_CONTENT[country];
   if (!guide) notFound();
 
+  const heroPhoto = getCountryPhoto(country, 1200, 400);
+
   const otherCountries = GUIDE_COUNTRIES
     .filter(c => c.toLowerCase().replace(/\s+/g, '-') !== country)
     .slice(0, 6);
@@ -60,22 +64,26 @@ export default async function GuidePage({ params }: Props) {
       />
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
         <Header />
-        <main className="container mx-auto px-4 py-8 max-w-4xl">
-          {/* Hero */}
-          <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-8 mb-8 text-white">
-            <p className="text-blue-300 text-sm mb-2 font-medium uppercase tracking-wide">
-              Relocation Guide
-            </p>
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">
-              Moving to {guide.country}
-            </h1>
-            <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm text-blue-200">
-              <span>Capital: {guide.capital}</span>
-              <span>Currency: {guide.currency}</span>
-              <span>Language: {guide.language}</span>
-              <span>Timezone: {guide.timezone}</span>
+
+        {/* Hero photo */}
+        <div className="relative h-56 md:h-72 w-full overflow-hidden">
+          <Image src={heroPhoto} alt={`Moving to ${guide.country}`} fill className="object-cover" priority unoptimized />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
+          <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
+            <div className="container mx-auto max-w-4xl">
+              <p className="text-blue-300 text-sm mb-2 font-medium uppercase tracking-wide">Relocation Guide</p>
+              <h1 className="text-2xl md:text-4xl font-bold text-white mb-2">Moving to {guide.country}</h1>
+              <div className="flex flex-wrap gap-x-5 gap-y-1 text-sm text-blue-200">
+                <span>Capital: {guide.capital}</span>
+                <span>Currency: {guide.currency}</span>
+                <span>Language: {guide.language}</span>
+                <span>Timezone: {guide.timezone}</span>
+              </div>
             </div>
           </div>
+        </div>
+
+        <main className="container mx-auto px-4 py-8 max-w-4xl">
 
           <div className="grid gap-6">
             <Section title="Overview">{guide.overview}</Section>

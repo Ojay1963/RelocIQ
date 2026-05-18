@@ -69,6 +69,12 @@ export const BEST_CATEGORY_SLUGS = [
   "best-countries-for-students",
 ];
 
+export const SCHOOLS_SLUGS = ["germany", "portugal", "thailand", "uae", "canada", "australia", "netherlands", "spain", "japan", "singapore"];
+
+export const HEALTHCARE_SLUGS = ["thailand", "portugal", "uae", "germany", "spain", "singapore", "malaysia", "colombia", "mexico", "india"];
+
+export const EXPAT_SLUGS = ["portugal", "spain", "thailand", "uae", "germany", "georgia", "colombia", "mexico", "malaysia", "singapore"];
+
 export const COMPARE_SLUGS = [
   "portugal-vs-spain",
   "thailand-vs-bali",
