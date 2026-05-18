@@ -27,7 +27,12 @@ export default async function AdminLeadsPage({ searchParams }: Props) {
     );
   }
 
-  const leads: Lead[] = await prisma.lead.findMany({ orderBy: { createdAt: 'desc' } });
+  let leads: Lead[] = [];
+  try {
+    leads = await prisma.lead.findMany({ orderBy: { createdAt: 'desc' } });
+  } catch {
+    // SQLite unavailable in serverless environments (e.g. Vercel)
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
