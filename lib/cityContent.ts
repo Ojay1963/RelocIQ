@@ -812,5 +812,500 @@ export const CITY_CONTENT: Record<string, CityContent> = {
     },
     nomadScore: 8,
     highlights: ["Acropolis and Parthenon (dawn visit for crowds-free experience)", "Athens Central Market (Varvakeios) — ancient food market", "Island day trips: Aegina, Hydra, Poros by ferry", "Monastiraki flea market on Sundays", "Cape Sounion — Temple of Poseidon at sunset, 70km from city"]
+  },
+
+  madrid: {
+    city: "Madrid", slug: "madrid", country: "Spain", countrySlug: "spain",
+    tagline: "Europe's most vibrant capital — art, tapas, late nights and world-class football",
+    overview: "Madrid is one of Europe's great capital cities — warm, passionate, and relentlessly alive. As Spain's political and financial hub, it offers the best job market in the country alongside an extraordinary cultural life: the Prado, Reina Sofía and Thyssen-Bornemisza form one of the world's greatest museum triangles within walking distance. Madrid is also Europe's city that never sleeps — dinner at 10pm, bars until 3am, clubs open at midnight. The city punches above its weight for expats seeking career opportunities without Scandinavian prices.",
+    costBreakdown: [
+      { item: "1BR apartment (central)", cost: "€900–€1,600/mo" },
+      { item: "1BR apartment (suburbs)", cost: "€650–€1,000/mo" },
+      { item: "Tapas bar meal", cost: "€10–€20" },
+      { item: "Coffee (café con leche)", cost: "€1.20–€1.80" },
+      { item: "Metro monthly pass", cost: "€54.60" },
+      { item: "Co-working space", cost: "€150–€280/mo" },
+      { item: "Gym membership", cost: "€30–€60/mo" }
+    ],
+    monthlyBudget: { budget: "$1,600", comfortable: "$2,500", luxury: "$5,000" },
+    bestFor: ["Career Seekers", "Art Lovers", "Foodies", "Football Fans", "Nightlife"],
+    neighbourhoods: [
+      { name: "Malasaña", vibe: "Hipster heartland, vintage shops, indie cafes, young crowd, bohemian" },
+      { name: "Chueca", vibe: "LGBTQ+ hub, lively, boutiques, restaurants, very central" },
+      { name: "Lavapiés", vibe: "Multicultural, artistic, cheap eats, edgy, gentrifying" },
+      { name: "Salamanca", vibe: "Upscale, designer shops, embassy district, older affluent crowd" },
+      { name: "La Latina", vibe: "Historic tapas bar district, weekend mercado, medieval streets" }
+    ],
+    practicalInfo: {
+      climate: "Continental Mediterranean. Hot dry summers (35–40°C July/August). Mild winters (5–12°C). 300 sunny days/year.",
+      internet: "Excellent fibre coverage. Movistar, Orange, Vodafone all offer fast broadband.",
+      coworking: "Utopicus, WeWork, Cocoworking — Madrid has a growing co-working scene especially in the tech districts.",
+      safety: "Generally very safe European capital. Pickpocketing in tourist areas (Sol, Gran Vía) — standard vigilance needed.",
+      transport: "Excellent metro (13 lines). EMT buses. Cercanías commuter trains. Renfe AVE for intercity. Cycling expanding (BiciMAD)."
+    },
+    nomadScore: 8,
+    highlights: ["Prado Museum — Velázquez, Goya, Rubens in a single afternoon", "Real Madrid or Atlético match at the Bernabéu or Metropolitano", "El Retiro Park — rowing lake and crystal palace on a Sunday morning", "Mercado de San Miguel — gourmet tapas and vermouth", "Day trip to Toledo or Segovia by AVE in under 30 minutes"]
+  },
+
+  phuket: {
+    city: "Phuket", slug: "phuket", country: "Thailand", countrySlug: "thailand",
+    tagline: "Thailand's island paradise — stunning beaches, resort infrastructure and year-round sun",
+    overview: "Phuket is Thailand's largest island and its most developed beach destination. For expats, it offers a complete lifestyle: world-class beaches (Kata, Karon, Kamala, Bang Tao), international schools, excellent hospitals, and a permanent expat community of retirees, remote workers, and entrepreneurs. Rawai and Chalong attract long-stay expats seeking quieter, more local life; Patong is the tourist and nightlife epicentre. Infrastructure is good by Thai standards — Phuket International Airport has direct flights to 30+ countries.",
+    costBreakdown: [
+      { item: "1BR apartment / condo (mid-range)", cost: "฿12,000–฿25,000/mo" },
+      { item: "Private villa (shared pool)", cost: "฿25,000–฿60,000/mo" },
+      { item: "Restaurant meal (local Thai)", cost: "฿80–฿200" },
+      { item: "Scooter rental", cost: "฿3,000–฿4,500/mo" },
+      { item: "Co-working space", cost: "฿3,000–฿8,000/mo" },
+      { item: "Gym membership (Muay Thai + fitness)", cost: "฿2,000–฿5,000/mo" },
+      { item: "Grocery shopping (mid-range)", cost: "฿8,000–฿15,000/mo" }
+    ],
+    monthlyBudget: { budget: "$900", comfortable: "$1,600", luxury: "$3,500" },
+    bestFor: ["Beach Lovers", "Retirees", "Divers", "Families", "Remote Workers"],
+    neighbourhoods: [
+      { name: "Rawai / Nai Harn", vibe: "Local, authentic, fishing village feel, quieter beach, expat retirees" },
+      { name: "Chalong", vibe: "Central location, temples, Muay Thai gyms, convenient, residential" },
+      { name: "Bang Tao / Laguna", vibe: "Upscale, luxury resorts, golf course, international schools nearby" },
+      { name: "Patong", vibe: "Party town, Bangla Road nightlife, tourist-heavy, loud, convenient shops" },
+      { name: "Kata / Karon", vibe: "Family-friendly beach, calmer than Patong, restaurants, surf school" }
+    ],
+    practicalInfo: {
+      climate: "Tropical. Dry season November–April (30–33°C). Wet season May–October — heavy rains but beach life continues. Hottest March–April.",
+      internet: "Good in central areas and condos. TRUE, AIS, DTAC provide 4G/5G. Co-working spaces reliable. Villa wifi can be patchy.",
+      coworking: "HIVE Phuket (Chalong), Punspace (new branch), several beach co-working cafes. Smaller scene than Chiang Mai.",
+      safety: "Generally safe. Road accidents (motorbike) are the biggest risk — drive carefully. Rip currents at some beaches — observe flags.",
+      transport: "Car or scooter essential — public transport is very limited. Grab operates on the island. Songthaews (shared trucks) on fixed routes."
+    },
+    nomadScore: 7,
+    highlights: ["Big Buddha — 45-metre white marble statue overlooking the island", "Phi Phi Islands day trip — stunning limestone karsts and turquoise water", "Chalong Bay Rum distillery tour", "Night market (Naka Weekend Market, Saturday/Sunday)", "Old Phuket Town — Sino-Portuguese shophouses and street art"]
+  },
+
+  tokyo: {
+    city: "Tokyo", slug: "tokyo", country: "Japan", countrySlug: "japan",
+    tagline: "The world's greatest megacity — endlessly fascinating, safe, and surprisingly liveable",
+    overview: "Tokyo is arguably the world's most extraordinary city. A megacity of 14 million (Greater Tokyo: 37 million) that somehow manages to feel orderly, clean, safe, and deeply human. The combination of ancient temples and ultramodern architecture, Michelin stars at every price point, fashion districts, anime culture, and flawless infrastructure makes Tokyo unlike anywhere else. For expats, the main challenges are the language barrier and cost — but Tokyo rewards those who engage deeply. The tech and English-teaching job markets are the main entry points for foreign workers.",
+    costBreakdown: [
+      { item: "1K apartment (Shinjuku/Shibuya area)", cost: "¥100,000–¥180,000/mo ($650–$1,180)" },
+      { item: "1K apartment (outer wards)", cost: "¥70,000–¥120,000/mo ($460–$790)" },
+      { item: "Ramen at a local shop", cost: "¥800–¥1,200 ($5–$8)" },
+      { item: "Set lunch (teishoku) at restaurant", cost: "¥900–¥1,500 ($6–$10)" },
+      { item: "Monthly commuter pass (5 stops)", cost: "¥10,000–¥20,000/mo" },
+      { item: "Co-working space", cost: "¥20,000–¥45,000/mo" },
+      { item: "Gym membership", cost: "¥8,000–¥15,000/mo" }
+    ],
+    monthlyBudget: { budget: "$2,000", comfortable: "$3,200", luxury: "$6,000" },
+    bestFor: ["Tech Workers", "Foodies", "Culture Lovers", "Language Learners", "Anime/Gaming fans"],
+    neighbourhoods: [
+      { name: "Shinjuku", vibe: "Entertainment hub, Golden Gai bars, Kabukicho, incredibly diverse, 24/7 energy" },
+      { name: "Shibuya", vibe: "Fashion, shopping, Scramble crossing, young and trendy, tech startups" },
+      { name: "Shimokitazawa", vibe: "Vintage shops, live music, indie cafes, young creative crowd" },
+      { name: "Yanaka", vibe: "Old Tokyo atmosphere, temples, traditional crafts, quiet residential" },
+      { name: "Nakameguro", vibe: "Upscale, canal-side cafes, boutiques, expat professionals" }
+    ],
+    practicalInfo: {
+      climate: "Four distinct seasons. Hot humid summers (30–35°C, July–August). Cherry blossom spring (March–April). Mild winters (3–10°C). Typhoon season September–October.",
+      internet: "World-class. NTT Docomo, SoftBank, au offer lightning-fast 5G. Home fibre from ¥4,000-5,000/month. Public WiFi improving.",
+      coworking: "WeWork multiple locations, Fabbit, Regus, TELEPATHY Tokyo — extensive options especially in Shibuya/Shinjuku.",
+      safety: "One of the world's safest cities. Almost zero violent crime. Natural disaster preparedness is essential (earthquakes, typhoons).",
+      transport: "World's best public transport. 13 metro lines + JR network. IC card (Suica/Pasmo) for seamless payment. Taxis expensive. Cycling practical in some areas."
+    },
+    nomadScore: 8,
+    highlights: ["Tsukiji Outer Market — sushi breakfast from the world's finest tuna", "Senso-ji temple at dawn before the crowds arrive", "teamLab Borderless — immersive digital art museum", "Day trip to Nikko or Kamakura — UNESCO shrines and giant Buddha", "Shibuya scramble crossing — 3,000 pedestrians crossing simultaneously"]
+  },
+
+  sydney: {
+    city: "Sydney", slug: "sydney", country: "Australia", countrySlug: "australia",
+    tagline: "Sun, harbour, surf and world-class careers — Australia's global city",
+    overview: "Sydney is one of the world's most beautiful and liveable cities. The combination of a stunning natural setting (Sydney Harbour, Bondi Beach), a cosmopolitan culture reflecting 200 nationalities, a strong job market (especially finance, tech, and professional services), excellent public services, and year-round outdoor lifestyle makes it a compelling destination. The cost of living is high by global standards, but so are salaries. The Sydney expat community is enormous and well-integrated — the city's DNA is fundamentally multicultural.",
+    costBreakdown: [
+      { item: "1BR apartment (inner city)", cost: "AUD 2,500–4,000/mo ($1,650–$2,650)" },
+      { item: "1BR apartment (outer suburbs)", cost: "AUD 1,800–2,800/mo ($1,190–$1,850)" },
+      { item: "Café brunch (avocado toast era)", cost: "AUD 20–35" },
+      { item: "Flat white coffee", cost: "AUD 4.50–6.00" },
+      { item: "Opal card transport (monthly approx)", cost: "AUD 200–350/mo" },
+      { item: "Co-working space", cost: "AUD 300–600/mo" },
+      { item: "Gym membership", cost: "AUD 60–100/mo" }
+    ],
+    monthlyBudget: { budget: "$3,000", comfortable: "$4,500", luxury: "$8,000" },
+    bestFor: ["Finance & Tech Professionals", "Beach Lovers", "Surfers", "Families", "Students"],
+    neighbourhoods: [
+      { name: "Surry Hills", vibe: "Trendy, brunch culture, cafes, diverse restaurants, young professionals" },
+      { name: "Newtown", vibe: "Bohemian, vintage, LGBTQ+ friendly, student, creative" },
+      { name: "Bondi / Coogee", vibe: "Beach lifestyle, surf culture, backpacker-to-professional mix" },
+      { name: "Manly", vibe: "North shore ferry life, beach village, family-friendly, quieter" },
+      { name: "CBD / Darling Harbour", vibe: "Business district, high-rise living, convenient, expensive, corporate" }
+    ],
+    practicalInfo: {
+      climate: "Temperate oceanic. Warm summers (25–35°C Dec–Feb). Mild winters (8–17°C June–Aug). Spring and autumn ideal. Occasional bushfire smoke in summer.",
+      internet: "Good NBN fibre coverage in most suburbs. Telstra, Optus, TPG are main providers. 5G expanding rapidly.",
+      coworking: "WeWork, Fishburners, Stone & Chalk, Spaces — Sydney has a mature tech startup co-working scene.",
+      safety: "Very safe. Low violent crime. Swimmers: check beach flags and shark warnings. Sun protection critical year-round.",
+      transport: "Train network, bus, light rail and ferry. Opal card covers all modes. Traffic congestion is severe. Cycling infrastructure improving."
+    },
+    nomadScore: 8,
+    highlights: ["Sydney Harbour Bridge climb — 360° city and ocean views", "Bondi to Coogee coastal walk (6km, ocean pools and clifftop views)", "Royal Botanic Garden with Opera House views", "Blue Mountains day trip — canyons and eucalyptus forest 90 minutes away", "Sydney Fish Market Sunday — freshest seafood in the Southern Hemisphere"]
+  },
+
+  melbourne: {
+    city: "Melbourne", slug: "melbourne", country: "Australia", countrySlug: "australia",
+    tagline: "Australia's cultural capital — coffee, arts, sport and the world's most liveable city reputation",
+    overview: "Melbourne consistently tops global liveability rankings (Economist Intelligence Unit, Mercer) and its residents will tell you exactly why: extraordinary food and coffee culture, world-class arts institutions, a passionate sporting culture (AFL, tennis Grand Slam, cricket), diverse neighbourhoods, and a creative economy that punches above its weight. Melbourne is less overtly beautiful than Sydney but many expats find it the better city to actually live in — more affordable (relatively), more culturally rich, and with a distinct personality.",
+    costBreakdown: [
+      { item: "1BR apartment (inner city)", cost: "AUD 2,000–3,500/mo ($1,320–$2,300)" },
+      { item: "1BR apartment (outer suburbs)", cost: "AUD 1,500–2,200/mo ($990–$1,460)" },
+      { item: "Café meal (brunch)", cost: "AUD 18–30" },
+      { item: "Specialty coffee", cost: "AUD 4–5.50" },
+      { item: "Myki card (monthly approx)", cost: "AUD 180–280/mo" },
+      { item: "Co-working space", cost: "AUD 250–500/mo" },
+      { item: "Australian Rules Football game", cost: "AUD 25–80" }
+    ],
+    monthlyBudget: { budget: "$2,800", comfortable: "$4,000", luxury: "$7,000" },
+    bestFor: ["Coffee Lovers", "Arts & Culture", "Foodies", "Tech Workers", "Students"],
+    neighbourhoods: [
+      { name: "Fitzroy / Collingwood", vibe: "Hipster capital, galleries, vintage, live music, craft beer bars" },
+      { name: "South Yarra / Prahran", vibe: "Fashion, upscale dining, Chapel Street, young professionals" },
+      { name: "Carlton", vibe: "University, Italian heritage (Lygon Street), cafes, families" },
+      { name: "Richmond", vibe: "Multicultural, Vietnamese restaurants (Victoria Street), AFL culture" },
+      { name: "St Kilda", vibe: "Beach suburb, Acland Street cake shops, backpacker scene, live music" }
+    ],
+    practicalInfo: {
+      climate: "'Four seasons in one day' — notoriously changeable. Summers 30–42°C with heatwaves. Winters mild but grey (8–15°C). Best: March–May and September–November.",
+      internet: "Strong NBN coverage. Telstra, Optus, Aussie Broadband all provide good home broadband.",
+      coworking: "York Butter Factory, Inspire9, WeWork — Melbourne has a strong startup culture and excellent co-working options.",
+      safety: "Very safe. Some CBD nightlife areas have occasional incidents late night. Standard urban awareness needed.",
+      transport: "Tram network (largest in Southern Hemisphere), trains, buses. Myki card covers all. Inner suburbs walkable/cycleable. Car useful for outer areas."
+    },
+    nomadScore: 8,
+    highlights: ["Federation Square and Ian Potter Centre — free contemporary Australian art", "Queen Victoria Market — fresh food and Saturday bustle since 1878", "Great Ocean Road day trip — Twelve Apostles and rainforest in one route", "Yarra Valley wine region — Pinot Noir and cool-climate whites 1 hour out", "Melbourne laneways — hidden graffiti art, espresso bars and dumpling cellars"]
+  },
+
+  paris: {
+    city: "Paris", slug: "paris", country: "France", countrySlug: "france",
+    tagline: "The world's most iconic city — art, gastronomy and a quality of life that redefines living",
+    overview: "Paris needs no introduction but rewards deeper exploration. For expats, Paris offers the world's finest concentration of art, gastronomy, fashion, and intellectual culture in a city with excellent public transport, world-class healthcare, beautiful architecture, and a passionate café culture that makes daily errands pleasurable. The challenges are real: bureaucracy is labyrinthine, French is essential for integration, and housing is expensive and competitive. But for those who commit, Paris rewards like few other cities on earth.",
+    costBreakdown: [
+      { item: "Studio/1BR apartment (inner arrondissements)", cost: "€1,200–€2,200/mo" },
+      { item: "1BR apartment (outer arrondissements/banlieue)", cost: "€800–€1,400/mo" },
+      { item: "Brasserie lunch (plat du jour)", cost: "€12–€18" },
+      { item: "Café crème", cost: "€2–€3.50" },
+      { item: "Navigo metro pass (monthly, all zones)", cost: "€86.40" },
+      { item: "Co-working space", cost: "€200–€400/mo" },
+      { item: "Gym membership", cost: "€30–€80/mo" }
+    ],
+    monthlyBudget: { budget: "$2,200", comfortable: "$3,500", luxury: "$7,000" },
+    bestFor: ["Culture Lovers", "Foodies", "Fashion Industry", "Finance Professionals", "Artists"],
+    neighbourhoods: [
+      { name: "Le Marais (3rd/4th arr.)", vibe: "Historic Jewish quarter, LGBTQ+ friendly, galleries, boutiques, cafes" },
+      { name: "Montmartre (18th arr.)", vibe: "Artists' hill, Sacré-Cœur, tourist but charming, Amélie film locations" },
+      { name: "Saint-Germain-des-Prés (6th arr.)", vibe: "Literary cafes (Flore, Deux Magots), bookshops, upscale, quintessentially Parisian" },
+      { name: "Bastille / Oberkampf (11th arr.)", vibe: "Nightlife, young crowd, affordable relative to central, authentic Paris" },
+      { name: "Canal Saint-Martin (10th arr.)", vibe: "Bobo (bourgeois bohemian), waterside cafes, young professionals, creative" }
+    ],
+    practicalInfo: {
+      climate: "Temperate oceanic. Mild summers (22–28°C, July–August). Cold grey winters (2–8°C). Spring (April–May) and autumn (September–October) are best.",
+      internet: "Excellent fibre. Orange, SFR, Bouygues, Free offer affordable fast broadband. Paris has good 5G coverage.",
+      coworking: "WeWork, Regus, Kwerk, Morning — Paris has world-class co-working infrastructure especially in La Défense and the startup Station F campus.",
+      safety: "Generally safe. Pickpocketing is a significant issue at tourist sites (Eiffel Tower, Louvre, metro) — be vigilant. Some outer areas less safe at night.",
+      transport: "World-class Métro (16 lines). RER suburban trains. Vélib' bike share. Taxis and Uber. SNCF high-speed trains to all major French cities."
+    },
+    nomadScore: 8,
+    highlights: ["Louvre Museum — world's most visited museum, masterpieces every corridor", "Père Lachaise Cemetery — Jim Morrison, Édith Piaf, Oscar Wilde", "Marché d'Aligre — best street market in Paris on Saturday mornings", "Day trip to Versailles — Palace, gardens and Grand Canal", "Sunset picnic on Pont des Arts or along Canal Saint-Martin"]
+  },
+
+  rome: {
+    city: "Rome", slug: "rome", country: "Italy", countrySlug: "italy",
+    tagline: "The Eternal City — 3,000 years of history on every street corner",
+    overview: "Rome is one of the world's greatest cities for living inside history. The density of ancient monuments, Renaissance churches, Baroque fountains and piazzas is simply unmatched anywhere on earth. For expats, Rome offers a warm, chaotic, deeply beautiful lifestyle at moderate European cost. The food culture (carbonara, cacio e pepe, supplì, gelato) is extraordinary. Italians are passionate and welcoming. The challenges are the famous Italian bureaucracy, traffic, and the challenge of learning enough Italian to truly integrate.",
+    costBreakdown: [
+      { item: "1BR apartment (Trastevere/Prati)", cost: "€1,000–€1,800/mo" },
+      { item: "1BR apartment (outer neighbourhoods)", cost: "€700–€1,100/mo" },
+      { item: "Lunch (trattoria, pasta + wine)", cost: "€12–€20" },
+      { item: "Espresso (standing at bar)", cost: "€1–€1.50" },
+      { item: "Bus/metro monthly pass", cost: "€35" },
+      { item: "Co-working space", cost: "€150–€300/mo" },
+      { item: "Gym membership", cost: "€30–€60/mo" }
+    ],
+    monthlyBudget: { budget: "$1,700", comfortable: "$2,600", luxury: "$5,000" },
+    bestFor: ["History & Culture", "Foodies", "Artists", "Architecture Lovers", "Students"],
+    neighbourhoods: [
+      { name: "Trastevere", vibe: "Medieval village feel, ivy-covered walls, restaurants, lively nightlife, very popular" },
+      { name: "Pigneto", vibe: "Working-class turned hipster, street art, budget eateries, young creatives" },
+      { name: "Prati", vibe: "Near Vatican, middle-class residential, wide avenues, family-friendly" },
+      { name: "Testaccio", vibe: "Authentic Roman neighbourhood, former slaughterhouse area, best food market" },
+      { name: "Garbatella", vibe: "Unique garden-city architecture, off the tourist trail, local and affordable" }
+    ],
+    practicalInfo: {
+      climate: "Mediterranean. Hot dry summers (30–38°C). Mild wet winters (7–14°C). Best months: April–June and September–October.",
+      internet: "TIM, Fastweb, WINDTRE provide fibre. Coverage improving but patchier than Northern European cities.",
+      coworking: "Copernico, Talent Garden, TheHUB — Rome has a growing co-working scene especially near Termini and Tiburtina.",
+      safety: "Generally safe. Pickpocketing especially on buses (Line 64 near Vatican notorious) and at Colosseum. Driving chaotic — walk or cycle where possible.",
+      transport: "Two metro lines (limited but useful). Extensive bus network. Trams. Bikes (Roma in Bici). Walking best for historic centre. Traffic is chaotic."
+    },
+    nomadScore: 7,
+    highlights: ["Colosseum and Roman Forum at opening time — before the tour groups arrive", "Sistine Chapel ceiling — Michelangelo's creation viewed from directly below", "Carbonara at Da Enzo al 29 in Trastevere — the definitive version", "Appian Way bicycle ride on Sunday — ancient tombs and no traffic", "Galleria Borghese — best sculpture collection in the world (pre-booking essential)"]
+  },
+
+  munich: {
+    city: "Munich", slug: "munich", country: "Germany", countrySlug: "germany",
+    tagline: "Bavaria's capital — prosperity, beer gardens, world-class museums and Alpine day trips",
+    overview: "Munich is Germany's most prosperous and arguably most liveable major city. As the capital of Bavaria, it combines German efficiency and quality of life with a distinctly warmer, more sociable character — the beer garden culture is genuine, not performative. Home to BMW, Siemens, MAN, Allianz and a growing tech sector, Munich offers outstanding employment opportunities with correspondingly high salaries. The Alps and Lake Starnberg are 30 minutes away. The drawbacks: Munich is Germany's most expensive city for housing, with severe rental market competition.",
+    costBreakdown: [
+      { item: "1BR apartment (central Maxvorstadt/Schwabing)", cost: "€1,400–€2,500/mo" },
+      { item: "1BR apartment (outer districts)", cost: "€1,000–€1,600/mo" },
+      { item: "Beer garden meal (Brotzeit + Maß)", cost: "€18–€28" },
+      { item: "Coffee (café)", cost: "€2.50–€4" },
+      { item: "MVV monthly pass (inner zones)", cost: "€57" },
+      { item: "Co-working space", cost: "€200–€400/mo" },
+      { item: "Gym membership", cost: "€40–€80/mo" }
+    ],
+    monthlyBudget: { budget: "$2,500", comfortable: "$3,800", luxury: "$7,000" },
+    bestFor: ["Engineering & Tech", "Automotive Industry", "Beer Culture", "Alpine Sports", "Families"],
+    neighbourhoods: [
+      { name: "Maxvorstadt", vibe: "Museum quarter, students, cafes, university area — Munich's most cultural neighbourhood" },
+      { name: "Schwabing", vibe: "Historic Bohemian quarter, well-to-do, English Garden access, relaxed" },
+      { name: "Glockenbachviertel", vibe: "LGBTQ+ friendly, young professionals, galleries, great restaurants" },
+      { name: "Haidhausen (Au-Haidhausen)", vibe: "Family-friendly, slightly cheaper, French quarter feel, good transport" },
+      { name: "Neuhausen-Nymphenburg", vibe: "Residential, Nymphenburg Palace, families, quieter, good for cyclists" }
+    ],
+    practicalInfo: {
+      climate: "Continental. Warm summers (25–30°C). Cold winters (-5 to 5°C) with reliable snow. Spring and autumn beautiful. Föhn wind can cause headaches before Alps storms.",
+      internet: "Excellent fibre. Deutsche Telekom, Vodafone, 1&1 all provide fast connections.",
+      coworking: "WeWork, betahaus Munich, TechQuartier — Munich has a solid but smaller startup scene than Berlin.",
+      safety: "One of Germany's safest large cities. Low crime. Very orderly public life.",
+      transport: "Excellent U-Bahn (metro), S-Bahn, tram and bus. MVV card covers all. Munich Central Station (Hauptbahnhof) is the rail hub for day trips and intercity."
+    },
+    nomadScore: 7,
+    highlights: ["English Garden — 375 hectares, beer gardens, nude sunbathing meadow, urban surfing on the Eisbach wave", "Oktoberfest (late September) — beer halls, traditional dress, extraordinary atmosphere", "Day trip to Neuschwanstein Castle — the world's most photographed castle, 90 minutes away", "BMW Welt and Museum — even for non-car enthusiasts, spectacularly designed", "Marienplatz glockenspiel at 11am and Viktualienmarkt fresh produce market"]
+  },
+
+  hanoi: {
+    city: "Hanoi", slug: "hanoi", country: "Vietnam", countrySlug: "vietnam",
+    tagline: "Vietnam's ancient capital — French colonial charm, street food heaven and chaotic energy",
+    overview: "Hanoi is Vietnam's political capital and one of Southeast Asia's most distinctive cities. The French colonial architecture, ancient Temple of Literature, 36 guild streets of the Old Quarter, and Hoan Kiem Lake create a city of extraordinary character. Hanoi is significantly cheaper and more authentic than Ho Chi Minh City, with a cooler climate in winter. The digital nomad scene is smaller but growing, and the food culture (pho, bun cha, bun bo Hue, egg coffee) is considered among the finest in the world.",
+    costBreakdown: [
+      { item: "1BR serviced apartment (Ba Dinh/Tay Ho)", cost: "$400–$900/mo" },
+      { item: "1BR apartment (Old Quarter)", cost: "$300–$700/mo" },
+      { item: "Pho breakfast (street stall)", cost: "VND 35,000–60,000 ($1.50–$2.50)" },
+      { item: "Bun cha lunch", cost: "VND 45,000–80,000 ($2–$3.50)" },
+      { item: "Grab motorbike ride (3km)", cost: "VND 20,000–35,000 ($0.85–$1.50)" },
+      { item: "Co-working space", cost: "$80–$200/mo" },
+      { item: "Vietnamese language class", cost: "$100–$200/mo" }
+    ],
+    monthlyBudget: { budget: "$700", comfortable: "$1,200", luxury: "$2,500" },
+    bestFor: ["History Buffs", "Foodies", "Budget Travellers", "Language Learners", "Motorbike Explorers"],
+    neighbourhoods: [
+      { name: "Hoan Kiem (Old Quarter)", vibe: "Chaotic, historic, guilds, street food, tourist-heavy but vibrant" },
+      { name: "Tay Ho (West Lake)", vibe: "Expat enclave, lakeside, international restaurants, quieter, yoga studios" },
+      { name: "Ba Dinh", vibe: "Embassy district, Ho Chi Minh mausoleum, tree-lined boulevards, spacious" },
+      { name: "Dong Da", vibe: "Student area, University of Hanoi, young crowd, local and affordable" },
+      { name: "Long Bien", vibe: "Up-and-coming, riverside, crossing the bridge — authentic Hanoi life" }
+    ],
+    practicalInfo: {
+      climate: "Four seasons unlike southern Vietnam. Winters genuinely cool (14–20°C, Dec–Feb). Hot humid summers (35°C+). Best: October–November and March–April.",
+      internet: "Good 4G/5G. Viettel and Mobifone SIM cards very cheap. Co-working spaces reliable. Home fibre affordable (under $15/month).",
+      coworking: "Toong, Dreamplex, UP Co-working — growing scene especially near West Lake and Ba Dinh.",
+      safety: "Generally safe. Traffic is the main hazard — chaotic motorbike culture. Petty theft in Old Quarter. Air quality can be poor in winter.",
+      transport: "Grab (motorbike and car) essential. No functional metro yet (under construction). Walking in Old Quarter. Bicycle renting popular."
+    },
+    nomadScore: 7,
+    highlights: ["Egg coffee at Café Giang — Vietnam's unique invention, thick and extraordinary", "Temple of Literature — Vietnam's first university, 11th century, beautiful courtyards", "Ha Long Bay weekend trip — limestone karsts and overnight junk cruises", "Hoan Kiem Lake sunset walk and Ngoc Son Temple on the island", "Dong Xuan Market — Hanoi's largest covered market, all of Vietnam in one hall"]
+  },
+
+  "da-nang": {
+    city: "Da Nang", slug: "da-nang", country: "Vietnam", countrySlug: "vietnam",
+    tagline: "Vietnam's rising star — beach, mountains, ancient towns and the fastest-growing nomad scene",
+    overview: "Da Nang has exploded as a digital nomad and expat destination in the last five years. The combination of My Khe Beach (one of Asia's best urban beaches), proximity to UNESCO World Heritage Hoi An (30 minutes) and ancient Hue (2 hours), a modern city infrastructure, excellent co-working scene, affordable costs, and year-round warmth makes it uniquely compelling. Vietnam's government has invested heavily in Da Nang's infrastructure, and the Nomad community here rivals Chiang Mai in its depth and organisation.",
+    costBreakdown: [
+      { item: "1BR apartment (beachside Mỹ Khê)", cost: "$300–$700/mo" },
+      { item: "1BR apartment (city centre)", cost: "$250–$500/mo" },
+      { item: "Banh mi (street stall)", cost: "VND 20,000–40,000 ($0.85–$1.70)" },
+      { item: "Mi Quang noodle dish (local)", cost: "VND 40,000–60,000 ($1.70–$2.50)" },
+      { item: "Beach club day pass", cost: "$5–$15" },
+      { item: "Co-working space (monthly)", cost: "$80–$180/mo" },
+      { item: "Scooter rental (monthly)", cost: "$60–$100/mo" }
+    ],
+    monthlyBudget: { budget: "$700", comfortable: "$1,100", luxury: "$2,200" },
+    bestFor: ["Digital Nomads", "Beach Lovers", "Surfers", "Budget Travellers", "Remote Workers"],
+    neighbourhoods: [
+      { name: "Mỹ Khê Beach area", vibe: "Beachfront, resorts and expat apartments, surf, sunsets, vibrant" },
+      { name: "Hai Chau (city centre)", vibe: "Central, Han Market, affordable, local Vietnamese daily life" },
+      { name: "Son Tra Peninsula", vibe: "Jungle meets beach, Monkey Mountain, quieter, scenic, diving access" },
+      { name: "An Thuong area", vibe: "Expat hub, restaurants, bars, yoga studios, walking distance to beach" },
+      { name: "Ngu Hanh Son (Marble Mountains)", vibe: "Local neighbourhood, Buddhist temples, sculpture workshops, cheaper" }
+    ],
+    practicalInfo: {
+      climate: "Tropical monsoon. Dry season March–August (hot, 30–35°C). Rainy season September–January (typhoon risk October–November).",
+      internet: "Excellent fibre and 4G. Viettel, Mobifone cheapest. Very reliable at co-working spaces.",
+      coworking: "Toong Da Nang, Enouvo Space, The Hub — Da Nang now has 20+ co-working spaces of good quality.",
+      safety: "Very safe. Water safety at beach during storm season. Standard motorbike traffic awareness.",
+      transport: "Motorbike or scooter essential. Grab widely used. Limited public buses. Short distances make cycling practical in some areas."
+    },
+    nomadScore: 9,
+    highlights: ["My Khe Beach — 30km of pristine urban beach with clear warm water", "Hoi An Ancient Town day trip — lantern-lit streets and UNESCO heritage", "Bà Nà Hills (Golden Bridge) — hands holding a bridge in misty mountains", "Marble Mountains — Buddhist caves, shrines and summit views over the coast", "Nomad meetups at An Thuong — the most active digital nomad scene in Vietnam"]
+  },
+
+  milan: {
+    city: "Milan", slug: "milan", country: "Italy", countrySlug: "italy",
+    tagline: "Italy's financial capital — fashion, design, finance and Italy's best nightlife",
+    overview: "Milan is Italy's engine room — the country's financial, fashion and design capital. If Rome is about history and Naples about passion, Milan is about ambition and taste. The city hosts fashion week twice yearly, the world's best furniture fair (Salone del Mobile), and is home to Italy's largest concentration of multinational headquarters. For expats, Milan offers the most substantial job market in Italy, a cosmopolitan international community, excellent aperitivo culture, and proximity to the Italian Lakes, Alps and coastal towns. It's more expensive than other Italian cities but more European in pace.",
+    costBreakdown: [
+      { item: "1BR apartment (Navigli/Isola)", cost: "€1,100–€2,000/mo" },
+      { item: "1BR apartment (outer areas)", cost: "€750–€1,200/mo" },
+      { item: "Aperitivo (drink + buffet)", cost: "€8–€12" },
+      { item: "Espresso (standing at bar)", cost: "€1–€1.50" },
+      { item: "ATM/GTT monthly transport pass", cost: "€39" },
+      { item: "Co-working space", cost: "€200–€400/mo" },
+      { item: "Gym membership", cost: "€40–€80/mo" }
+    ],
+    monthlyBudget: { budget: "$2,000", comfortable: "$3,200", luxury: "$6,000" },
+    bestFor: ["Fashion & Design", "Finance Professionals", "Foodies", "Architecture Lovers", "Internationals"],
+    neighbourhoods: [
+      { name: "Navigli", vibe: "Canal district, aperitivo strip, young professionals, nightlife, artistic" },
+      { name: "Isola", vibe: "Gentrified village-in-a-city, Michelin restaurants, boutiques, creative class" },
+      { name: "Brera", vibe: "Art gallery district, cobbled streets, boutiques, elegant and quiet" },
+      { name: "Porta Venezia", vibe: "LGBTQ+ friendly, Liberty architecture, diverse, lively bar scene" },
+      { name: "City Life / Tre Torri", vibe: "Ultra-modern district, Zaha Hadid towers, upscale, business park" }
+    ],
+    practicalInfo: {
+      climate: "Continental. Hot humid summers (30–35°C, with smog). Cold foggy winters (0–8°C). Best: April–May and September–October.",
+      internet: "TIM, Fastweb, WINDTRE all offer good home broadband. 5G coverage is strong in Milan.",
+      coworking: "Talent Garden (multiple), Impact Hub, Spaces, Copernico — Milan has Italy's best co-working infrastructure.",
+      safety: "Generally safe. Central Milan has pickpocketing (Duomo area, metro). Some late-night areas require awareness.",
+      transport: "Excellent metro (4 lines). Trams and buses. ATM card for all modes. Trenitalia/Italo for intercity. Cycling improving (BikeMi)."
+    },
+    nomadScore: 7,
+    highlights: ["The Last Supper (Leonardo da Vinci) — book 3 months ahead, 15-minute viewings", "Duomo rooftop walk — cathedral architecture and Alps on clear days", "Salone del Mobile (April) — world's greatest design fair open to public", "Navigli aperitivo from 6-9pm — all-you-can-eat buffet included with drinks", "Lake Como day trip — Bellagio, Varenna and ferries in 50 minutes by train"]
+  },
+
+  bogota: {
+    city: "Bogotá", slug: "bogota", country: "Colombia", countrySlug: "colombia",
+    tagline: "South America's highest capital — culture, gastronomy and a city in rapid transformation",
+    overview: "Bogotá sits at 2,600 metres in the Andes and is one of South America's most dynamic and culturally rich capitals. The city has undergone an extraordinary transformation — from a dangerous 1990s capital to a sophisticated modern metropolis with world-class museums (Gold Museum, Botero Museum), a thriving food scene, an electric cycling culture, and a creative class that has put Colombian design, music and cuisine on the global map. The altitude and traffic are the main adjustment challenges; the rewards are significant.",
+    costBreakdown: [
+      { item: "1BR apartment (Chapinero/Zona Rosa)", cost: "COP 1,800,000–4,500,000/mo ($450–$1,100)" },
+      { item: "1BR apartment (Kennedy/Engativá)", cost: "COP 900,000–1,800,000/mo ($220–$450)" },
+      { item: "Bandeja paisa (set meal)", cost: "COP 15,000–35,000 ($4–$9)" },
+      { item: "Tinto (small black coffee)", cost: "COP 1,000–3,000 ($0.25–$0.75)" },
+      { item: "TransMilenio card (monthly approx)", cost: "COP 90,000–150,000 ($22–$38)" },
+      { item: "Co-working space", cost: "COP 300,000–800,000/mo ($75–$200)" },
+      { item: "Gym membership", cost: "COP 80,000–180,000/mo ($20–$45)" }
+    ],
+    monthlyBudget: { budget: "$700", comfortable: "$1,300", luxury: "$2,800" },
+    bestFor: ["Culture Lovers", "Foodies", "Cyclists", "Latin America HQ seekers", "Budget Travellers"],
+    neighbourhoods: [
+      { name: "Chapinero / Zona Rosa", vibe: "Upscale, restaurants, LGBTQ+ friendly, tree-lined, expat professionals" },
+      { name: "La Candelaria", vibe: "Historic centre, colonial architecture, museums, students, graffiti art" },
+      { name: "Usaquén", vibe: "Colonial village-in-a-city, weekend antique market, brunch culture, upscale" },
+      { name: "Teusaquillo", vibe: "Intellectual, Universidad Nacional, heritage houses, art galleries, local" },
+      { name: "El Chico", vibe: "Wealthy residential, Andean Club, quiet streets, embassies" }
+    ],
+    practicalInfo: {
+      climate: "Altitude equatorial: cool year-round (7–19°C). Rainy seasons March–May and October–November. Dry: December–February and July–August. Always carry a jacket.",
+      internet: "Good 4G, fibre expanding. Claro, ETB and Tigo are main providers. Co-working spaces reliable.",
+      coworking: "Selina Bogotá, Espacio B, The Social Hub — growing startup scene centred on Chapinero.",
+      safety: "Research neighbourhoods carefully. Chapinero, Zona Rosa, Usaquén very safe for expats. Avoid La Candelaria at night. Use Uber/InDriver rather than street taxis.",
+      transport: "TransMilenio (BRT system, busy but effective). Ciclovía on Sundays (121km car-free). Uber and InDriver recommended. Altitude makes walking feel harder."
+    },
+    nomadScore: 7,
+    highlights: ["Gold Museum (Museo del Oro) — 55,000 pre-Hispanic gold artefacts, free on Sundays", "Ciclovía — every Sunday, 121km of roads car-free for cyclists and walkers", "Monserrate Mountain — cable car and funicular to hilltop church overlooking the city", "La Perseverancia market — authentic Colombian market experience in the city", "Botero Museum — free museum of Fernando Botero's plump sculptures and paintings"]
+  },
+
+  penang: {
+    city: "Penang (George Town)", slug: "penang", country: "Malaysia", countrySlug: "malaysia",
+    tagline: "Asia's food capital — UNESCO heritage streets, street art and Malaysia's richest culture",
+    overview: "Penang's George Town is one of Asia's most compelling mid-size cities. The UNESCO World Heritage-listed historic centre is a kaleidoscope of Straits Chinese shophouses, Tamil Hindu temples, Chinese clan houses, colonial buildings and street art murals that have made it globally famous. The food culture is extraordinary — routinely voted Asia's best street food destination. Penang is significantly cheaper than Kuala Lumpur or Singapore, has excellent hospitals (major medical tourism destination) and a growing digital nomad community around the historic core.",
+    costBreakdown: [
+      { item: "1BR apartment (George Town)", cost: "MYR 1,200–2,500/mo ($260–$540)" },
+      { item: "Penang Hill condo/serviced apt", cost: "MYR 1,500–3,000/mo ($320–$650)" },
+      { item: "Char kway teow (street hawker)", cost: "MYR 6–12 ($1.30–$2.60)" },
+      { item: "Nasi kandar (full meal)", cost: "MYR 8–15 ($1.75–$3.25)" },
+      { item: "Grab ride (10km)", cost: "MYR 10–20 ($2.15–$4.30)" },
+      { item: "Co-working space", cost: "MYR 300–800/mo ($65–$175)" },
+      { item: "Gym membership", cost: "MYR 80–200/mo ($17–$43)" }
+    ],
+    monthlyBudget: { budget: "$700", comfortable: "$1,100", luxury: "$2,200" },
+    bestFor: ["Foodies", "Culture Lovers", "Medical Tourists", "Retirees", "Digital Nomads"],
+    neighbourhoods: [
+      { name: "George Town UNESCO Core", vibe: "Heritage, street art, boutique hotels, cafes, walking distance everything" },
+      { name: "Gurney Drive / Gurney Paragon", vibe: "Upscale seafront, hawker centre, malls, expat condos" },
+      { name: "Tanjung Bungah", vibe: "Beachside, quieter, family-friendly, older expat community" },
+      { name: "Batu Ferringhi", vibe: "Beach resort, tourist strip, night market, budget to mid-range" },
+      { name: "Ayer Itam", vibe: "Local, Kek Lok Si temple area, affordable, authentic daily life" }
+    ],
+    practicalInfo: {
+      climate: "Tropical. Hot and humid year-round (28–34°C). No real dry season. Northeast monsoon Oct–Jan can bring flooding. Generally pleasant compared to KL.",
+      internet: "Good 4G, fibre in urban areas. Unifi (TM), Maxis and Celcom provide broadband. Very affordable (~MYR 79-99/month for fibre).",
+      coworking: "Common Ground (Penang), Penang Digital Library, Impact Hub — small but growing co-working scene.",
+      safety: "Very safe. Penang consistently rates as Malaysia's safest state. Standard petty theft vigilance in touristy areas.",
+      transport: "Car or Grab recommended — Penang has no metro. Free CAT bus service in George Town heritage zone. Bridge connects island to mainland (35 minutes)."
+    },
+    nomadScore: 8,
+    highlights: ["Char kway teow at Penang Road Famous Teochew Chendul — queue and eat standing", "Street art murals by Ernest Zacharevic — life-sized paintings throughout George Town", "Kek Lok Si Temple (Chinese New Year illuminations — spectacular)", "Penang Hill funicular for city panorama and butterfly farm", "Batu Maung seafood restaurants — outdoor tables, fresh tiger prawns and mantis shrimp at sunset"]
+  },
+
+  marrakech: {
+    city: "Marrakech", slug: "marrakech", country: "Morocco", countrySlug: "morocco",
+    tagline: "The Red City — Morocco's most iconic destination blending souks, riads and Atlas Mountains",
+    overview: "Marrakech is one of the world's most sensory-rich cities — a labyrinthine medina of souks, riads (courtyard houses), hammams, spice markets and ancient palaces. For expats and long-stay nomads, Marrakech offers a unique combination of North African culture, affordable living, year-round sunshine, a growing creative and co-working scene, and direct flights to Europe (2–3 hours from London, Paris, Amsterdam). The Medina is a UNESCO World Heritage site; the new city (Gueliz) is modern, French-influenced and convenient.",
+    costBreakdown: [
+      { item: "Riad rental (Medina, shared)", cost: "MAD 3,000–8,000/mo ($290–$780)" },
+      { item: "1BR apartment (Gueliz)", cost: "MAD 4,000–9,000/mo ($390–$880)" },
+      { item: "Tajine (local restaurant)", cost: "MAD 60–120 ($6–$12)" },
+      { item: "Mint tea at riad", cost: "MAD 15–30 ($1.50–$3)" },
+      { item: "Petit taxi (within Medina)", cost: "MAD 10–30 ($1–$3)" },
+      { item: "Co-working space", cost: "MAD 800–2,000/mo ($78–$195)" },
+      { item: "Hammam session", cost: "MAD 80–200 ($8–$20)" }
+    ],
+    monthlyBudget: { budget: "$800", comfortable: "$1,400", luxury: "$3,000" },
+    bestFor: ["Culture Lovers", "Slow Travellers", "Creatives", "Digital Nomads", "Foodies"],
+    neighbourhoods: [
+      { name: "Medina (Derb Dabachi)", vibe: "Historic heart, souks, riad living, evocative, labyrinthine" },
+      { name: "Gueliz (Ville Nouvelle)", vibe: "French new city, cafes, supermarkets, modern apartments, convenient" },
+      { name: "Hivernage", vibe: "Hotel district, upscale, palm-lined boulevards, nightclubs" },
+      { name: "Sidi Ghanem", vibe: "Industrial area turned creative district — design studios, galleries, factories" },
+      { name: "Palmeraie", vibe: "Luxury villas, palm groves, golf, expensive and secluded" }
+    ],
+    practicalInfo: {
+      climate: "Semi-arid. Very hot dry summers (38–42°C June–August). Warm pleasant winters (15–22°C). Spring/autumn ideal. Atlas Mountains visible on clear winter days.",
+      internet: "Improving rapidly. Maroc Telecom (IAM) provides decent 4G. Fibre available in Gueliz. Co-working spaces reliable.",
+      coworking: "Cwork, Hub by Google (former), various riad-based spaces — Marrakech has 15+ co-working spots with growing quality.",
+      safety: "Generally safe. Medina: take care of bag snatching and aggressive touts in the souks. Women should dress modestly. Exercise standard caution.",
+      transport: "Petit taxis (shared, metered) and grand taxis. No metro. Uber operates. Walking best in Medina. Car needed for Atlas excursions."
+    },
+    nomadScore: 7,
+    highlights: ["Djemaa el-Fna square at dusk — food stalls, storytellers, snake charmers, musicians", "Bahia Palace — stunning 19th-century Arabic-Andalusian architecture", "Majorelle Garden — Yves Saint Laurent's Cubist garden with cobalt blue buildings", "Atlas Mountains day trip — Ouzoud Waterfalls or trekking in the Ourika Valley", "Souk tanneries — ancient leather-dyeing vats viewed from surrounding terrace shops"]
+  },
+
+  florence: {
+    city: "Florence", slug: "florence", country: "Italy", countrySlug: "italy",
+    tagline: "The cradle of the Renaissance — Michelangelo, Botticelli and Chianti wine",
+    overview: "Florence is one of the world's greatest concentrations of art and architecture in a beautifully human-scale city. As the birthplace of the Renaissance, it houses the Uffizi Gallery, Michelangelo's David, Brunelleschi's Dome, and the Ponte Vecchio jewellers' bridge. For expats, Florence offers Italian charm without Rome's chaos, a vibrant study-abroad and creative community, excellent Tuscan cuisine and wine, and proximity to Tuscany's rolling countryside. It's not a major employment hub but draws artists, writers, students and those who can work remotely.",
+    costBreakdown: [
+      { item: "1BR apartment (Oltrarno/Santa Croce)", cost: "€900–€1,600/mo" },
+      { item: "1BR apartment (outer neighbourhoods)", cost: "€650–€1,000/mo" },
+      { item: "Trattoria lunch (pasta + wine)", cost: "€12–€20" },
+      { item: "Espresso at historic café", cost: "€1–€1.50" },
+      { item: "Bus monthly pass", cost: "€35" },
+      { item: "Co-working space", cost: "€150–€280/mo" },
+      { item: "Chianti Classico bottle (enoteca)", cost: "€8–€20" }
+    ],
+    monthlyBudget: { budget: "$1,600", comfortable: "$2,500", luxury: "$4,500" },
+    bestFor: ["Art Lovers", "Students", "Foodies", "Writers", "Wine Enthusiasts"],
+    neighbourhoods: [
+      { name: "Oltrarno", vibe: "Left bank, artisanal workshops, less touristy, local bars, authentic" },
+      { name: "Santa Croce", vibe: "Near famous basilica, mix of students and locals, good restaurants" },
+      { name: "San Niccolò", vibe: "Under-the-radar, Piazzale Michelangelo views, young crowd, affordable" },
+      { name: "Campo di Marte", vibe: "Residential, Fiorentina football stadium area, very local, cheap" },
+      { name: "Duomo/Historic Centre", vibe: "Tourist-heavy, views, convenient but expensive and always crowded" }
+    ],
+    practicalInfo: {
+      climate: "Mediterranean. Hot dry summers (32–38°C). Mild cold winters (3–12°C). Beautiful spring and autumn. Can flood near the Arno (November 1966 flood famous).",
+      internet: "TIM and Fastweb offer fibre. Coverage good in the city. Co-working spaces reliable.",
+      coworking: "Impact Hub Florence, Talent Garden, various cafes — small but functional co-working scene.",
+      safety: "Very safe. Pickpocketing near the Duomo and Uffizi. Locals in Oltrarno and residential areas have almost no crime.",
+      transport: "Compact city — walkable historic centre. Bus network (ATAF). Cycling popular in flat areas. Car restricted in ZTL (historic centre restricted traffic zone). Train from Santa Maria Novella station."
+    },
+    nomadScore: 7,
+    highlights: ["Uffizi Gallery — Botticelli's Birth of Venus and Primavera in a single hall", "Michelangelo's David at the Accademia — beyond photographs, profoundly moving", "Piazzale Michelangelo sunset — golden hour panorama over the Arno", "Day trip to Chianti wine country — vineyards, castles and Sangiovese tastings", "Mercato Centrale upstairs food hall — Florence's best artisan food producers under one roof"]
   }
 };

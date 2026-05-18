@@ -53,7 +53,9 @@ export const GUIDE_CITY_SLUGS = [
   "bangkok","chiang-mai","bali","medellín","mexico-city","buenos-aires","santiago",
   "lisbon","porto","barcelona","berlin","amsterdam","prague","vienna","budapest",
   "dubai","singapore","kuala-lumpur","ho-chi-minh-city","taipei",
-  "cape-town","tbilisi","tallinn","istanbul","athens"
+  "cape-town","tbilisi","tallinn","istanbul","athens",
+  "madrid","phuket","tokyo","sydney","melbourne","paris","rome","munich",
+  "hanoi","da-nang","milan","bogota","penang","marrakech","florence"
 ];
 
 export const BEST_CATEGORY_SLUGS = [

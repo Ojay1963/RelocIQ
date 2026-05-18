@@ -80,6 +80,73 @@ export const CITY_PHOTOS: Record<string, string> = {
   tallinn: "photo-1577412647305-991150c7d163",
   istanbul: "photo-1524231757912-21f4fe3a7200",
   athens: "photo-1533105079780-92b9be482077",
+  madrid: "photo-1543783207-ec64e4d95325",
+  phuket: "photo-1520250497591-112f2f40a3f4",
+  tokyo: "photo-1540959733332-eab4deabeeaf",
+  sydney: "photo-1506973035872-a4ec16b8e8d9",
+  melbourne: "photo-1514395462725-fb4566210144",
+  paris: "photo-1502602898657-3e91760cbb34",
+  rome: "photo-1515542622106-78bda8ba0e5b",
+  munich: "photo-1560969184-10fe8719e047",
+  hanoi: "photo-1583417319070-4a69db38a482",
+  "da-nang": "photo-1557804506-669a67965ba0",
+  milan: "photo-1438786657495-640937046d42",
+  bogota: "photo-1599037877757-82afc19f0da6",
+  penang: "photo-1596422846543-6ad5d8ff72bb",
+  marrakech: "photo-1489749798305-4fea3ae63d43",
+  florence: "photo-1541370976299-4d24be63eaed",
+};
+
+export const CITY_NAME_TO_SLUG: Record<string, string> = {
+  // Southeast Asia
+  "Bangkok": "bangkok",
+  "Chiang Mai": "chiang-mai",
+  "Phuket": "phuket",
+  "Hanoi": "hanoi",
+  "Ho Chi Minh City": "ho-chi-minh-city",
+  "Da Nang": "da-nang",
+  "Kuala Lumpur": "kuala-lumpur",
+  "Penang": "penang",
+  "Penang (George Town)": "penang",
+  "Singapore": "singapore",
+  "Bali": "bali",
+  "Bali (Canggu/Ubud/Seminyak)": "bali",
+  // East Asia
+  "Tokyo": "tokyo",
+  "Taipei": "taipei",
+  // Middle East
+  "Dubai": "dubai",
+  // Europe
+  "Lisbon": "lisbon",
+  "Porto": "porto",
+  "Barcelona": "barcelona",
+  "Madrid": "madrid",
+  "Berlin": "berlin",
+  "Munich": "munich",
+  "Amsterdam": "amsterdam",
+  "Prague": "prague",
+  "Vienna": "vienna",
+  "Budapest": "budapest",
+  "Tbilisi": "tbilisi",
+  "Tallinn": "tallinn",
+  "Athens": "athens",
+  "Istanbul": "istanbul",
+  "Rome": "rome",
+  "Milan": "milan",
+  "Florence": "florence",
+  "Paris": "paris",
+  // Oceania
+  "Sydney": "sydney",
+  "Melbourne": "melbourne",
+  // Africa
+  "Cape Town": "cape-town",
+  "Marrakech": "marrakech",
+  // Latin America
+  "Medellín": "medellín",
+  "Bogotá": "bogota",
+  "Mexico City": "mexico-city",
+  "Buenos Aires": "buenos-aires",
+  "Santiago": "santiago",
 };
 
 export const TOURIST_PHOTOS: Record<string, string[]> = {

@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
 import { GUIDE_CONTENT } from '@/lib/guideContent';
 import { GUIDE_COUNTRIES } from '@/lib/countries';
-import { getCountryPhoto } from '@/lib/photos';
+import { getCountryPhoto, CITY_NAME_TO_SLUG } from '@/lib/photos';
 import { CheckCircle2, MapPin, ArrowRight } from 'lucide-react';
 
 interface Props {
@@ -95,14 +95,28 @@ export default async function GuidePage({ params }: Props) {
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Top Cities</h2>
               <div className="flex flex-wrap gap-2">
-                {guide.topCities.map(city => (
-                  <span
-                    key={city}
-                    className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium"
-                  >
-                    <MapPin size={13} /> {city}
-                  </span>
-                ))}
+                {guide.topCities.map(city => {
+                  const slug = CITY_NAME_TO_SLUG[city];
+                  if (slug) {
+                    return (
+                      <Link
+                        key={city}
+                        href={`/cities/${slug}`}
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-blue-50 dark:bg-blue-950/30 text-blue-700 dark:text-blue-400 rounded-full text-sm font-medium hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors"
+                      >
+                        <MapPin size={13} /> {city}
+                      </Link>
+                    );
+                  }
+                  return (
+                    <span
+                      key={city}
+                      className="flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 rounded-full text-sm font-medium"
+                    >
+                      <MapPin size={13} /> {city}
+                    </span>
+                  );
+                })}
               </div>
             </div>
 
