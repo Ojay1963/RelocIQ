@@ -10,8 +10,11 @@ export function Header() {
           <span className="text-xl font-bold text-slate-900 dark:text-white">RelocIQ</span>
         </Link>
         <nav className="flex items-center gap-6 text-sm">
-          <Link href="/guides/portugal" className="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors hidden sm:block">
+          <Link href="/guides" className="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors hidden sm:block">
             Guides
+          </Link>
+          <Link href="/cities" className="text-slate-600 dark:text-slate-400 hover:text-blue-500 transition-colors hidden sm:block">
+            Cities
           </Link>
           <Link href="/" className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
             Start Free
