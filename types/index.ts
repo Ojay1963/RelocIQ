@@ -17,15 +17,51 @@ export interface VisaData {
 }
 
 export interface CompareData {
+  // Cost categories — each has a formatted string, raw number, optional note, and % delta vs home
+  // (negative delta = cheaper than home, positive = more expensive)
   rent: string;
+  rentRaw: number;
+  rentNote?: string;
+  rentDelta: number;
+
   food: string;
+  foodRaw: number;
+  foodNote?: string;
+  foodDelta: number;
+
   transport: string;
+  transportRaw: number;
+  transportNote?: string;
+  transportDelta: number;
+
+  utilities: string;
+  utilitiesRaw: number;
+  utilitiesNote?: string;
+  utilitiesDelta: number;
+
   internet: string;
+  internetRaw: number;
+  internetNote?: string;
+  internetDelta: number;
+
   healthcare: string;
+  healthcareRaw: number;
+  healthcareDelta: number;
+
   entertainment: string;
+  entertainmentRaw: number;
+  entertainmentDelta: number;
+
   totalMonthlyEstimate: string;
-  lifestyleScore: number;
+  totalMonthlyRaw: number;
+
   homeComparison: 'Better' | 'Worse' | 'Similar';
+  lifestyleScore: number;
+
+  purchasingPower?: string;
+  savingsVsHome?: string;
+  biggestSaving?: string;
+  verdict?: string;
   summary: string;
 }
 

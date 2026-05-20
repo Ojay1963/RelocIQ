@@ -7,6 +7,7 @@ import { CITY_CONTENT } from '@/lib/cityContent';
 import { GUIDE_CITY_SLUGS } from '@/lib/countries';
 import { getCityPhoto } from '@/lib/photos';
 import { CheckCircle2, MapPin, Wifi, Shield, Bus, Sun, Monitor, Star, ArrowRight } from 'lucide-react';
+import { CityBreakdownChart } from '@/components/CostBreakdownChart';
 
 interface Props {
   params: Promise<{ city: string }>;
@@ -101,30 +102,13 @@ export default async function CityPage({ params }: Props) {
               <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-sm">{content.overview}</p>
             </div>
 
-            {/* Monthly Budget */}
+            {/* Cost of Living — visual chart */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Monthly Budget Ranges</h2>
-              <div className="grid grid-cols-3 gap-4">
-                <BudgetCard label="Budget" amount={content.monthlyBudget.budget} color="emerald" />
-                <BudgetCard label="Comfortable" amount={content.monthlyBudget.comfortable} color="blue" />
-                <BudgetCard label="Luxury" amount={content.monthlyBudget.luxury} color="amber" />
-              </div>
-            </div>
-
-            {/* Cost Breakdown */}
-            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
-              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-4">Cost Breakdown</h2>
-              <div className="space-y-2">
-                {content.costBreakdown.map((row, i) => (
-                  <div
-                    key={i}
-                    className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-800 last:border-0"
-                  >
-                    <span className="text-sm text-slate-600 dark:text-slate-400">{row.item}</span>
-                    <span className="text-sm font-semibold text-slate-900 dark:text-white">{row.cost}</span>
-                  </div>
-                ))}
-              </div>
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-5">Cost of Living Breakdown</h2>
+              <CityBreakdownChart
+                items={content.costBreakdown}
+                monthlyBudget={content.monthlyBudget}
+              />
             </div>
 
             {/* Best For */}
@@ -224,20 +208,6 @@ export default async function CityPage({ params }: Props) {
   );
 }
 
-function BudgetCard({ label, amount, color }: { label: string; amount: string; color: 'emerald' | 'blue' | 'amber' }) {
-  const styles = {
-    emerald: 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-200 dark:border-emerald-800 text-emerald-700 dark:text-emerald-400',
-    blue: 'bg-blue-50 dark:bg-blue-950/30 border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-400',
-    amber: 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800 text-amber-700 dark:text-amber-400',
-  };
-  return (
-    <div className={`rounded-xl border p-4 text-center ${styles[color]}`}>
-      <p className="text-xs font-medium uppercase tracking-wide mb-1 opacity-70">{label}</p>
-      <p className="text-xl font-bold">{amount}</p>
-      <p className="text-xs mt-0.5 opacity-60">per month</p>
-    </div>
-  );
-}
 
 function PracticalItem({ icon, label, value }: { icon: React.ReactNode; label: string; value: string }) {
   return (

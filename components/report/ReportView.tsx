@@ -68,9 +68,9 @@ export function ReportView({ reports, formData, onAddDestination, onShareLink, o
               {formData.passportCountry} → {report.destination}
             </p>
           </div>
-          <div className="p-6 grid md:grid-cols-2 gap-6 divide-y md:divide-y-0 md:divide-x divide-slate-100 dark:divide-slate-800">
+          <div className="p-6 space-y-6">
             <VisaCard data={report.visa} />
-            <div className="md:pl-6 pt-6 md:pt-0">
+            <div className="border-t border-slate-100 dark:border-slate-800 pt-6">
               <CostCard data={report.compare} currency={formData.currency} income={formData.monthlyIncome} />
             </div>
           </div>

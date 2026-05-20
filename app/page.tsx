@@ -225,7 +225,7 @@ export default function Home() {
           <section className="mb-10" aria-label="Featured relocation destinations">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">Featured Destinations</h2>
-              <Link href="/guides/portugal" className="text-sm text-blue-500 hover:underline flex items-center gap-1">
+              <Link href="/guides" className="text-sm text-blue-500 hover:underline flex items-center gap-1">
                 All guides <ArrowRight size={13} />
               </Link>
             </div>
@@ -313,7 +313,7 @@ export default function Home() {
           <section className="mb-10" aria-label="Top expat cities">
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white">Top Expat Cities</h2>
-              <Link href="/cities/bangkok" className="text-sm text-blue-500 hover:underline flex items-center gap-1">
+              <Link href="/cities" className="text-sm text-blue-500 hover:underline flex items-center gap-1">
                 All cities <ArrowRight size={13} />
               </Link>
             </div>

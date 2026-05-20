@@ -6,6 +6,8 @@ import { Header } from '@/components/layout/Header';
 import { GUIDE_CONTENT } from '@/lib/guideContent';
 import { GUIDE_COUNTRIES } from '@/lib/countries';
 import { getCountryPhoto, CITY_NAME_TO_SLUG } from '@/lib/photos';
+import { CostBreakdownChart } from '@/components/CostBreakdownChart';
+import { COUNTRY_COST_DATA } from '@/lib/countryCostData';
 import { CheckCircle2, MapPin, ArrowRight } from 'lucide-react';
 
 interface Props {
@@ -87,7 +89,20 @@ export default async function GuidePage({ params }: Props) {
 
           <div className="grid gap-6">
             <Section title="Overview">{guide.overview}</Section>
-            <Section title="Cost of Living Summary">{guide.costOfLiving}</Section>
+
+            {/* Cost of Living — visual breakdown */}
+            <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+              <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Cost of Living</h2>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">{guide.costOfLiving}</p>
+              {COUNTRY_COST_DATA[country] ? (
+                <CostBreakdownChart
+                  rows={COUNTRY_COST_DATA[country].rows}
+                  totalRange={COUNTRY_COST_DATA[country].totalRange}
+                  note={COUNTRY_COST_DATA[country].note}
+                />
+              ) : null}
+            </div>
+
             <Section title="Visa Overview">{guide.visaOverview}</Section>
             <Section title="Why People Move Here">{guide.whyMoveHere}</Section>
 
