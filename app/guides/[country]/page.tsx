@@ -7,8 +7,12 @@ import { GUIDE_CONTENT } from '@/lib/guideContent';
 import { GUIDE_COUNTRIES } from '@/lib/countries';
 import { getCountryPhoto, CITY_NAME_TO_SLUG } from '@/lib/photos';
 import { CostBreakdownChart } from '@/components/CostBreakdownChart';
-import { COUNTRY_COST_DATA } from '@/lib/countryCostData';
-import { CheckCircle2, MapPin, ArrowRight } from 'lucide-react';
+import { getCountryCostData } from '@/lib/countryCostData';
+import { CheckCircle2, MapPin, ArrowRight, Users, Heart, GraduationCap } from 'lucide-react';
+import { EXPAT_SLUGS, HEALTHCARE_SLUGS, SCHOOLS_SLUGS } from '@/lib/countries';
+import { BreadcrumbLD } from '@/components/BreadcrumbLD';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { toSlug } from '@/lib/utils/toSlug';
 
 interface Props {
   params: Promise<{ country: string }>;
@@ -16,7 +20,7 @@ interface Props {
 
 export async function generateStaticParams() {
   return GUIDE_COUNTRIES.map(country => ({
-    country: country.toLowerCase().replace(/\s+/g, '-'),
+    country: toSlug(country),
   }));
 }
 
@@ -24,14 +28,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { country } = await params;
   const guide = GUIDE_CONTENT[country];
   if (!guide) return {};
+  const ogImage = getCountryPhoto(country, 1200, 630);
   return {
     title: `Moving to ${guide.country} — Visa, Cost of Living & Expat Guide | RelocIQ`,
     description: guide.overview.slice(0, 155),
-    alternates: { canonical: `/guides/${country}` },
+    alternates: { canonical: `https://relociq.com/guides/${country}` },
     openGraph: {
       title: `Moving to ${guide.country} — Complete Relocation Guide`,
       description: guide.overview.slice(0, 155),
       type: 'article',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `Moving to ${guide.country}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
     },
   };
 }
@@ -42,9 +52,10 @@ export default async function GuidePage({ params }: Props) {
   if (!guide) notFound();
 
   const heroPhoto = getCountryPhoto(country, 1200, 400);
+  const costData = getCountryCostData(country);
 
   const otherCountries = GUIDE_COUNTRIES
-    .filter(c => c.toLowerCase().replace(/\s+/g, '-') !== country)
+    .filter(c => toSlug(c) !== country)
     .slice(0, 6);
 
   const jsonLd = {
@@ -52,9 +63,11 @@ export default async function GuidePage({ params }: Props) {
     '@type': 'Article',
     headline: `Moving to ${guide.country} — Complete Relocation Guide`,
     description: guide.overview.slice(0, 155),
+    image: heroPhoto,
     author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     datePublished: '2024-01-01',
+    dateModified: '2025-05-01',
     url: `https://relociq.com/guides/${country}`,
   };
 
@@ -64,12 +77,17 @@ export default async function GuidePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbLD items={[
+        { name: 'Home', href: '/' },
+        { name: 'Guides', href: '/guides' },
+        { name: guide.country, href: `/guides/${country}` },
+      ]} />
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
         <Header />
 
         {/* Hero photo */}
         <div className="relative h-56 md:h-72 w-full overflow-hidden">
-          <Image src={heroPhoto} alt={`Moving to ${guide.country}`} fill className="object-cover" priority unoptimized />
+          <Image src={heroPhoto} alt={`${guide.country} destination landscape`} fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 1200px" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
             <div className="container mx-auto max-w-4xl">
@@ -86,6 +104,11 @@ export default async function GuidePage({ params }: Props) {
         </div>
 
         <main className="container mx-auto px-4 py-8 max-w-4xl">
+          <Breadcrumb items={[
+            { name: 'Home', href: '/' },
+            { name: 'Guides', href: '/guides' },
+            { name: guide.country },
+          ]} />
 
           <div className="grid gap-6">
             <Section title="Overview">{guide.overview}</Section>
@@ -94,11 +117,12 @@ export default async function GuidePage({ params }: Props) {
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
               <h2 className="text-xl font-bold text-slate-900 dark:text-white mb-1">Cost of Living</h2>
               <p className="text-sm text-slate-500 dark:text-slate-400 mb-5">{guide.costOfLiving}</p>
-              {COUNTRY_COST_DATA[country] ? (
+              {costData ? (
                 <CostBreakdownChart
-                  rows={COUNTRY_COST_DATA[country].rows}
-                  totalRange={COUNTRY_COST_DATA[country].totalRange}
-                  note={COUNTRY_COST_DATA[country].note}
+                  rows={costData.rows}
+                  totalRange={costData.totalRange}
+                  note={costData.note}
+                  label={`Monthly cost of living breakdown for ${guide.country}`}
                 />
               ) : null}
             </div>
@@ -164,6 +188,51 @@ export default async function GuidePage({ params }: Props) {
               </Link>
             </div>
 
+            {/* Deep Dive Guides */}
+            {(EXPAT_SLUGS.includes(country) || HEALTHCARE_SLUGS.includes(country) || SCHOOLS_SLUGS.includes(country)) && (
+              <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
+                <h3 className="text-base font-bold text-slate-900 dark:text-white mb-4">Deep Dive Guides for {guide.country}</h3>
+                <div className="grid sm:grid-cols-3 gap-3">
+                  {EXPAT_SLUGS.includes(country) && (
+                    <Link
+                      href={`/expat/${country}`}
+                      className="flex items-start gap-3 p-4 rounded-xl border border-blue-200 dark:border-blue-800 bg-blue-50 dark:bg-blue-950/30 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors group"
+                    >
+                      <Users size={18} className="text-blue-500 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm text-blue-700 dark:text-blue-400 group-hover:underline">Expat Life</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Community, culture & social life</p>
+                      </div>
+                    </Link>
+                  )}
+                  {HEALTHCARE_SLUGS.includes(country) && (
+                    <Link
+                      href={`/healthcare/${country}`}
+                      className="flex items-start gap-3 p-4 rounded-xl border border-rose-200 dark:border-rose-800 bg-rose-50 dark:bg-rose-950/30 hover:bg-rose-100 dark:hover:bg-rose-900/40 transition-colors group"
+                    >
+                      <Heart size={18} className="text-rose-500 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm text-rose-700 dark:text-rose-400 group-hover:underline">Healthcare</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Hospitals, costs & insurance</p>
+                      </div>
+                    </Link>
+                  )}
+                  {SCHOOLS_SLUGS.includes(country) && (
+                    <Link
+                      href={`/schools/${country}`}
+                      className="flex items-start gap-3 p-4 rounded-xl border border-emerald-200 dark:border-emerald-800 bg-emerald-50 dark:bg-emerald-950/30 hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-colors group"
+                    >
+                      <GraduationCap size={18} className="text-emerald-500 mt-0.5 shrink-0" />
+                      <div>
+                        <p className="font-semibold text-sm text-emerald-700 dark:text-emerald-400 group-hover:underline">Schools</p>
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">Universities & international schools</p>
+                      </div>
+                    </Link>
+                  )}
+                </div>
+              </div>
+            )}
+
             {/* Also Explore */}
             <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
               <h3 className="text-base font-bold text-slate-900 dark:text-white mb-3">Also Explore</h3>
@@ -171,7 +240,7 @@ export default async function GuidePage({ params }: Props) {
                 {otherCountries.map(c => (
                   <Link
                     key={c}
-                    href={`/guides/${c.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/guides/${toSlug(c)}`}
                     className="px-3 py-1.5 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm hover:bg-blue-50 dark:hover:bg-blue-950/30 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                   >
                     {c}

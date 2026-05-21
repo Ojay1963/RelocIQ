@@ -3,6 +3,7 @@ import {
   GUIDE_COUNTRIES, GUIDE_CITY_SLUGS, BEST_CATEGORY_SLUGS, COMPARE_SLUGS,
   SCHOOLS_SLUGS, HEALTHCARE_SLUGS, EXPAT_SLUGS,
 } from '@/lib/countries';
+import { toSlug } from '@/lib/utils/toSlug';
 
 // Treat guides as updated monthly; use a fixed date so Google doesn't
 // re-crawl every page on every deploy unnecessarily.
@@ -11,7 +12,7 @@ const TOOL_DATE = new Date('2025-05-01');
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const guideUrls = GUIDE_COUNTRIES.map(country => ({
-    url: `https://relociq.com/guides/${country.toLowerCase().replace(/\s+/g, '-')}`,
+    url: `https://relociq.com/guides/${toSlug(country)}`,
     lastModified: GUIDE_DATE,
     changeFrequency: 'monthly' as const,
     priority: 0.8,
@@ -76,6 +77,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: TOOL_DATE,
       changeFrequency: 'weekly' as const,
       priority: 1,
+    },
+    {
+      url: 'https://relociq.com/guides',
+      lastModified: GUIDE_DATE,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
+    },
+    {
+      url: 'https://relociq.com/cities',
+      lastModified: GUIDE_DATE,
+      changeFrequency: 'weekly' as const,
+      priority: 0.9,
     },
     ...toolUrls,
     ...bestUrls,

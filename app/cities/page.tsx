@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'City Guides — 40 Expat Cities | RelocIQ',
     description: 'Free cost of living and expat guides for 40 top cities worldwide.',
-    type: 'website',
+    type: 'article',
   },
 };
 

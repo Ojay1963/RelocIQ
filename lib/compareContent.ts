@@ -34,7 +34,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     slug: "portugal-vs-spain",
     title: "Portugal vs Spain — Which is Better for Expats?",
     metaTitle: "Portugal vs Spain for Expats 2025 — Cost, Visas & Lifestyle Compared",
-    description: "A head-to-head comparison of Portugal and Spain for expats, digital nomads, and retirees covering cost of living, visa options, and quality of life.",
+    description: "Portugal vs Spain compared across cost of living, visas, taxes, and lifestyle. Which Iberian destination suits expats and digital nomads best in 2025?",
     verdict: "Portugal wins for budget-conscious expats, retirees, and those seeking the NHR tax advantage. Spain wins for city energy, nightlife, language learning immersion, and those who want EU travel at a slightly higher cost.",
     intro: "Both Portugal and Spain sit at the top of every 'best countries for expats' list — and for good reason. Iberian warmth, great food, Mediterranean climate, and strong expat infrastructure. But they differ significantly in cost, visa options, culture, and lifestyle. Here's the complete comparison.",
     countryA: {
@@ -73,7 +73,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     slug: "thailand-vs-bali",
     title: "Thailand vs Bali (Indonesia) — Which is Better for Expats?",
     metaTitle: "Thailand vs Bali for Digital Nomads 2025 — Cost, Visa & Lifestyle",
-    description: "Thailand vs Bali — a detailed comparison for digital nomads, expats, and long-stay travellers covering cost, visa options, internet, and lifestyle.",
+    description: "Thailand vs Bali for digital nomads — full comparison of cost, visa options, internet, healthcare, community, and lifestyle for long-stay travellers in 2025.",
     verdict: "Thailand wins for infrastructure, city options, and longer-term visa solutions. Bali wins for pure tropical lifestyle, surf culture, and the wellness/spiritual scene. Your decision hinges on lifestyle priority vs practical infrastructure.",
     intro: "Thailand and Bali (Indonesia) are the two most iconic Southeast Asian expat and nomad destinations. Both deliver extraordinary tropical living at a fraction of Western costs — but their characters, visa situations, and infrastructure differ meaningfully.",
     countryA: {
@@ -112,7 +112,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     slug: "dubai-vs-singapore",
     title: "Dubai vs Singapore — Which is Better for Expats?",
     metaTitle: "Dubai vs Singapore for Expats 2025 — Tax, Cost & Career Compared",
-    description: "Dubai vs Singapore — comparing the two most competitive expat hubs in the world on salary, tax, cost of living, career, and lifestyle.",
+    description: "Dubai vs Singapore for expats — income tax, cost of living, career prospects, and quality of life compared. Which global hub should you choose in 2025?",
     verdict: "Dubai wins for zero income tax, faster career growth in finance/property/crypto, and Middle East market access. Singapore wins for safety, political stability, Southeast Asian market access, and superior quality of life metrics.",
     intro: "Dubai and Singapore are the two great rivals of the global expat world — both offering extraordinary infrastructure, international communities, zero/low income tax, and world-class career opportunities. Choosing between them is one of the most common dilemmas for globally mobile professionals.",
     countryA: {
@@ -151,7 +151,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     slug: "mexico-vs-colombia",
     title: "Mexico vs Colombia for Expats — Which is Better?",
     metaTitle: "Mexico vs Colombia for Expats & Nomads 2025 — Full Comparison",
-    description: "Mexico vs Colombia — comparing the two most popular Latin American expat destinations on cost, safety, visa, weather, and lifestyle.",
+    description: "Mexico vs Colombia for expats and digital nomads — full 2025 comparison of cost, safety, visa access, climate, and Latin American lifestyle. Which wins?",
     verdict: "Mexico wins for proximity to North America, time zones, and established expat infrastructure. Colombia wins for pure cost efficiency, Medellín's eternal spring climate, and the sense of discovering something still underrated.",
     intro: "Mexico and Colombia are the two dominant destinations for North American and European expats and digital nomads in Latin America. Both offer warm Latin culture, excellent food, vibrant nightlife, and dramatically lower costs than home — but they differ in safety, climate, visa ease, and lifestyle character.",
     countryA: {
@@ -190,7 +190,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     slug: "germany-vs-netherlands",
     title: "Germany vs Netherlands for Expats — Which is Better?",
     metaTitle: "Germany vs Netherlands for Expats 2025 — Career, Cost & Lifestyle",
-    description: "Germany vs Netherlands for skilled workers and expats — comparing salaries, visa ease, cost of living, English friendliness, and quality of life.",
+    description: "Germany vs Netherlands for skilled expats — comparing visa speed, 30% ruling tax break, job market size, cost of living, and English accessibility in 2025.",
     verdict: "Netherlands wins for English-language accessibility, salary-to-lifestyle ratio (30% ruling), and Amsterdam's international vibrancy. Germany wins for industrial depth, lower cost outside Munich, and the Opportunity Card job-search visa.",
     intro: "Germany and the Netherlands are the top two destinations for skilled workers and professionals seeking EU residency. Both offer excellent salaries, strong economies, and high quality of life — but they differ markedly in language, culture, cost, and visa accessibility.",
     countryA: {
@@ -229,7 +229,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     slug: "canada-vs-australia",
     title: "Canada vs Australia — Which is Better for Immigrants?",
     metaTitle: "Canada vs Australia for Immigration 2025 — Full Comparison",
-    description: "Canada vs Australia for skilled migrants — comparing immigration pathways, cost of living, job markets, climate, and quality of life.",
+    description: "Canada vs Australia for skilled migrants — comparing Express Entry vs Australian Skilled Migration, cost of living, climate, and paths to citizenship.",
     verdict: "Canada wins for immigration pathway predictability, French-speaking opportunities, and winter sports culture. Australia wins for climate, outdoor lifestyle, and if your occupation is in Australia's shortage list.",
     intro: "Canada and Australia are the world's two most competitive destinations for skilled migrants and international students seeking permanent residency. Both are English-speaking, multicultural, and have strong economies — but immigration pathways, climate, and lifestyle differ significantly.",
     countryA: {
@@ -342,3 +342,7 @@ export const COMPARE_CONTENT: Record<string, CompareContent> = {
     whoShouldChooseB: "Choose Georgia if maximum budget stretch is essential ($700 vs $2,000/month), you want 1-year visa-free with zero bureaucracy, love food and wine culture, or want a genuine frontier expat experience in a rapidly evolving destination.",
   },
 };
+
+export function getCompareContent(slug: string): CompareContent | undefined {
+  return COMPARE_CONTENT[slug];
+}

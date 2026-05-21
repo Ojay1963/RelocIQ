@@ -5,6 +5,7 @@ interface Props {
   rows: CostRow[];
   totalRange: string;
   note?: string;
+  label?: string;
 }
 
 const CATEGORY_CONFIG: Record<CostRow['category'], { Icon: React.ElementType; color: string; bar: string }> = {
@@ -17,12 +18,12 @@ const CATEGORY_CONFIG: Record<CostRow['category'], { Icon: React.ElementType; co
   entertainment: { Icon: Music,         color: 'text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/30', bar: 'bg-indigo-500' },
 };
 
-export function CostBreakdownChart({ rows, totalRange, note }: Props) {
+export function CostBreakdownChart({ rows, totalRange, note, label }: Props) {
   const maxRaw = Math.max(...rows.map(r => r.raw), 1);
   const totalRaw = rows.reduce((sum, r) => sum + r.raw, 0);
 
   return (
-    <div>
+    <div aria-label={label}>
       {/* Header */}
       <div className="flex flex-wrap items-baseline justify-between gap-2 mb-4">
         <div>
@@ -96,6 +97,7 @@ interface CityItem { item: string; cost: string }
 interface CityChartProps {
   items: CityItem[];
   monthlyBudget: { budget: string; comfortable: string; luxury: string };
+  label?: string;
 }
 
 function parseMidpoint(cost: string): number {
@@ -110,12 +112,12 @@ const ROW_COLORS = [
   'bg-violet-500', 'bg-rose-500', 'bg-indigo-500', 'bg-slate-500',
 ];
 
-export function CityBreakdownChart({ items, monthlyBudget }: CityChartProps) {
+export function CityBreakdownChart({ items, monthlyBudget, label }: CityChartProps) {
   const raws = items.map(i => parseMidpoint(i.cost));
   const maxRaw = Math.max(...raws, 1);
 
   return (
-    <div>
+    <div aria-label={label}>
       {/* Budget tiers */}
       <div className="grid grid-cols-3 gap-3 mb-5">
         {[

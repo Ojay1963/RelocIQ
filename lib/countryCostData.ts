@@ -664,3 +664,7 @@ export const COUNTRY_COST_DATA: Record<string, CountryCostData> = {
     ],
   },
 };
+
+export function getCountryCostData(country: string): CountryCostData | undefined {
+  return COUNTRY_COST_DATA[country];
+}

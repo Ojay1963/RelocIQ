@@ -7,6 +7,8 @@ import { SCHOOLS_CONTENT } from '@/lib/schoolsContent';
 import { SCHOOLS_SLUGS } from '@/lib/countries';
 import { getCountryPhoto } from '@/lib/photos';
 import { GraduationCap, BookOpen, DollarSign, CheckCircle2, HelpCircle, ArrowRight, Star, Globe } from 'lucide-react';
+import { BreadcrumbLD } from '@/components/BreadcrumbLD';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 interface Props { params: Promise<{ country: string }> }
 
@@ -18,11 +20,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { country } = await params;
   const content = SCHOOLS_CONTENT[country];
   if (!content) return {};
+  const ogImage = getCountryPhoto(country, 1200, 630);
   return {
     title: `Schools & Universities in ${content.country} — Fees & Admission Guide | RelocIQ`,
     description: content.intro.slice(0, 155),
-    alternates: { canonical: `/schools/${country}` },
-    openGraph: { title: `Studying in ${content.country} — Complete Guide`, description: content.intro.slice(0, 155), type: 'article' },
+    alternates: { canonical: `https://relociq.com/schools/${country}` },
+    openGraph: {
+      title: `Studying in ${content.country} — Complete Guide`,
+      description: content.intro.slice(0, 155),
+      type: 'article',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `Schools in ${content.country}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
+    },
   };
 }
 
@@ -33,13 +45,37 @@ export default async function SchoolsPage({ params }: Props) {
 
   const heroPhoto = getCountryPhoto(country, 1200, 400);
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Schools & Universities in ${content.country} — Fees & Admission Guide`,
+    description: content.intro.slice(0, 155),
+    image: heroPhoto,
+    author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
+    publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
+    datePublished: '2024-01-01',
+    dateModified: '2025-05-01',
+    url: `https://relociq.com/schools/${country}`,
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <BreadcrumbLD items={[
+        { name: 'Home', href: '/' },
+        { name: 'Guides', href: '/guides' },
+        { name: content.country, href: `/guides/${country}` },
+        { name: 'Schools', href: `/schools/${country}` },
+      ]} />
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <Header />
 
       {/* Hero with photo */}
       <div className="relative h-56 md:h-72 w-full overflow-hidden">
-        <Image src={heroPhoto} alt={`Schools in ${content.country}`} fill className="object-cover" priority unoptimized />
+        <Image src={heroPhoto} alt={`${content.country} city landscape`} fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 1200px" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
           <div className="container mx-auto max-w-4xl">
@@ -55,6 +91,13 @@ export default async function SchoolsPage({ params }: Props) {
       </div>
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
+        <Breadcrumb items={[
+          { name: 'Home', href: '/' },
+          { name: 'Guides', href: '/guides' },
+          { name: content.country, href: `/guides/${country}` },
+          { name: 'Schools' },
+        ]} />
+
         <div className="grid gap-6">
           {/* Intro */}
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
@@ -218,5 +261,6 @@ export default async function SchoolsPage({ params }: Props) {
         </div>
       </main>
     </div>
+    </>
   );
 }

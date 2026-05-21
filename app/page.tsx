@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Header } from '@/components/layout/Header';
+import { toSlug } from '@/lib/utils/toSlug';
 import { HomeInteractive } from '@/components/HomeInteractive';
 import { GUIDE_COUNTRIES, GUIDE_CITY_SLUGS, COST_INDEX_DATA } from '@/lib/countries';
 import { CITY_CONTENT } from '@/lib/cityContent';
@@ -10,7 +11,7 @@ import {
 } from 'lucide-react';
 
 export const metadata: Metadata = {
-  title: 'RelocIQ — Free Visa & Cost of Living Tool for Moving Abroad',
+  title: { absolute: 'RelocIQ — Free Visa & Cost of Living Tool' },
   description:
     'Plan your move abroad for free. Get instant visa requirements, monthly cost of living breakdowns, and expert relocation guides for 50+ countries. No signup needed.',
   keywords:
@@ -132,7 +133,7 @@ export default function Home() {
       />
       <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50/30 to-slate-50 dark:from-slate-950 dark:via-blue-950/20 dark:to-slate-950">
         <Header />
-        <main className="container mx-auto px-4 py-8 max-w-5xl">
+        <main id="main-content" className="container mx-auto px-4 py-8 max-w-5xl">
 
           {/* ── Hero ── */}
           <section className="text-center mb-10" aria-label="Site introduction">
@@ -169,7 +170,7 @@ export default function Home() {
           <HomeInteractive />
 
           {/* ── Stats ── */}
-          <div className="grid grid-cols-4 gap-3 mt-8 mb-8">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-8 mb-8">
             {GLOBAL_STATS.map(stat => (
               <div key={stat.label} className="bg-white dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-800 p-4 text-center">
                 <p className="text-2xl font-bold text-blue-600 dark:text-blue-400">{stat.value}</p>
@@ -344,7 +345,7 @@ export default function Home() {
                   <div className="flex items-center gap-3">
                     <span className="text-xs font-bold text-slate-400 w-4">#{i + 1}</span>
                     <Link
-                      href={`/guides/${entry.country.toLowerCase().replace(/\s+/g, '-')}`}
+                      href={`/guides/${toSlug(entry.country)}`}
                       className="font-medium text-sm text-slate-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                     >
                       {entry.country}
@@ -376,7 +377,7 @@ export default function Home() {
               {GUIDE_COUNTRIES.map(country => (
                 <Link
                   key={country}
-                  href={`/guides/${country.toLowerCase().replace(/\s+/g, '-')}`}
+                  href={`/guides/${toSlug(country)}`}
                   className="px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-sm hover:border-blue-400 dark:hover:border-blue-600 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
                 >
                   {country}

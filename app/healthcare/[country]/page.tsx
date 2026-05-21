@@ -7,6 +7,8 @@ import { HEALTHCARE_CONTENT } from '@/lib/healthcareContent';
 import { HEALTHCARE_SLUGS } from '@/lib/countries';
 import { getCountryPhoto } from '@/lib/photos';
 import { Heart, Shield, DollarSign, Phone, CheckCircle2, HelpCircle, ArrowRight, Star } from 'lucide-react';
+import { BreadcrumbLD } from '@/components/BreadcrumbLD';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 interface Props { params: Promise<{ country: string }> }
 
@@ -18,11 +20,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { country } = await params;
   const content = HEALTHCARE_CONTENT[country];
   if (!content) return {};
+  const ogImage = getCountryPhoto(country, 1200, 630);
   return {
     title: `Healthcare in ${content.country} — Hospitals, Costs & Insurance Guide | RelocIQ`,
     description: content.intro.slice(0, 155),
-    alternates: { canonical: `/healthcare/${country}` },
-    openGraph: { title: `Healthcare in ${content.country} — Expat Guide`, description: content.intro.slice(0, 155), type: 'article' },
+    alternates: { canonical: `https://relociq.com/healthcare/${country}` },
+    openGraph: {
+      title: `Healthcare in ${content.country} — Expat Guide`,
+      description: content.intro.slice(0, 155),
+      type: 'article',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `Healthcare in ${content.country}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
+    },
   };
 }
 
@@ -32,16 +44,39 @@ export default async function HealthcarePage({ params }: Props) {
   if (!content) notFound();
 
   const heroPhoto = getCountryPhoto(country, 1200, 400);
-
   const ratingColor = content.systemRating >= 8 ? 'text-emerald-500' : content.systemRating >= 6 ? 'text-amber-500' : 'text-red-500';
 
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: `Healthcare in ${content.country} — Expat Guide`,
+    description: content.intro.slice(0, 155),
+    image: heroPhoto,
+    author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
+    publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
+    datePublished: '2024-01-01',
+    dateModified: '2025-05-01',
+    url: `https://relociq.com/healthcare/${country}`,
+  };
+
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <BreadcrumbLD items={[
+        { name: 'Home', href: '/' },
+        { name: 'Guides', href: '/guides' },
+        { name: content.country, href: `/guides/${country}` },
+        { name: 'Healthcare', href: `/healthcare/${country}` },
+      ]} />
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <Header />
 
       {/* Hero */}
       <div className="relative h-56 md:h-72 w-full overflow-hidden">
-        <Image src={heroPhoto} alt={`Healthcare in ${content.country}`} fill className="object-cover" priority unoptimized />
+        <Image src={heroPhoto} alt={`${content.country} city landscape`} fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 1200px" />
         <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
           <div className="container mx-auto max-w-4xl">
@@ -62,6 +97,13 @@ export default async function HealthcarePage({ params }: Props) {
       </div>
 
       <main className="container mx-auto px-4 py-8 max-w-4xl">
+        <Breadcrumb items={[
+          { name: 'Home', href: '/' },
+          { name: 'Guides', href: '/guides' },
+          { name: content.country, href: `/guides/${country}` },
+          { name: 'Healthcare' },
+        ]} />
+
         <div className="grid gap-6">
           {/* Intro */}
           <div className="bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6">
@@ -231,5 +273,6 @@ export default async function HealthcarePage({ params }: Props) {
         </div>
       </main>
     </div>
+    </>
   );
 }

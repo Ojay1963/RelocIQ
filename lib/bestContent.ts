@@ -21,7 +21,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "cheapest-countries-in-europe",
     title: "Cheapest Countries in Europe to Live In",
     metaTitle: "10 Cheapest Countries in Europe for Expats & Nomads (2025)",
-    description: "The most affordable European countries ranked by cost of living, with real monthly budget breakdowns and visa options.",
+    description: "The cheapest European countries for expats ranked — Bulgaria, Romania, Georgia, and Portugal compared on real monthly budget breakdowns and visa options.",
     intro: "Europe offers extraordinary quality of life — but costs vary wildly between countries. Western Europe can cost $3,000–$5,000/month, while Eastern and Southern Europe deliver comparable (often better) lifestyles for $1,000–$2,000/month. Here are the most affordable European countries for expats and digital nomads in 2025.",
     countries: [
       { country: "Georgia", slug: "georgia", score: 32, highlight: "$700–$1,000/month", details: "Technically at Europe's edge, Georgia is the ultimate budget destination. Tbilisi offers an emerging café culture, excellent wine, and a 1-year renewable remote worker visa. Apartments from $200/month." },
@@ -46,7 +46,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-digital-nomads",
     title: "Best Countries for Digital Nomads",
     metaTitle: "Best Countries for Digital Nomads in 2025 — Visas, Cost & Internet",
-    description: "Top-ranked countries for remote workers and digital nomads, covering dedicated nomad visas, internet speed, cost of living, and community.",
+    description: "Best countries for digital nomads in 2025 — Portugal, Estonia, Thailand, and Croatia compared on nomad visa options, internet speed, cost, and community.",
     intro: "The digital nomad movement has gone mainstream, and governments worldwide now compete for remote workers' tax dollars. The best countries for digital nomads combine a legal framework to stay long-term, fast internet, affordable cost of living, and an existing community of like-minded people. These are the top choices for 2025.",
     countries: [
       { country: "Portugal", slug: "portugal", score: 92, highlight: "D8 Digital Nomad Visa", details: "Portugal pioneered the modern digital nomad visa. The D8 requires €3,040/month income and grants 1-year residency renewable to permanent. Lisbon and Madeira Island are nomad meccas." },
@@ -71,7 +71,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-retirement",
     title: "Best Countries for Retirement Abroad",
     metaTitle: "Best Countries to Retire Abroad in 2025 — Affordable & Safe",
-    description: "Top countries for retiring abroad, ranked by cost, healthcare, safety, climate, and dedicated retiree visa programmes.",
+    description: "Best countries to retire abroad in 2025 — Portugal, Panama, Mexico, Costa Rica, and Thailand ranked on retirement visas, healthcare, safety, and monthly cost.",
     intro: "Retiring abroad can stretch your pension 2–5x further while delivering better weather, lower stress, and extraordinary quality of life. The best retirement destinations combine affordable healthcare, low cost of living, welcoming communities, and clear visa pathways for retirees. These are the best options for 2025.",
     countries: [
       { country: "Portugal", slug: "portugal", score: 95, highlight: "D7 Passive Income Visa", details: "Consistently ranked the world's #1 retirement destination. The D7 Visa requires only €760/month pension income. Portugal offers private health insurance from €80/month, mild climate, safe cities, and the NHR tax regime (10% flat tax on foreign pension income for 10 years)." },
@@ -96,7 +96,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "easiest-work-visas",
     title: "Countries with the Easiest Work Visas",
     metaTitle: "Countries with Easiest Work Visas for Foreigners in 2025",
-    description: "Countries where getting a work visa or work permit is most straightforward, with processing times, costs, and income requirements.",
+    description: "Countries with the easiest work visas for foreigners in 2025 — Germany, Netherlands, Singapore, UAE, and Canada compared on processing time and requirements.",
     intro: "Most countries make it intentionally difficult to obtain work permission — but some actively compete for skilled foreign talent. These countries offer the clearest, fastest, and most accessible pathways to legal work authorisation in 2025.",
     countries: [
       { country: "Canada", slug: "canada", score: 90, highlight: "Express Entry (as fast as 6 months)", details: "Canada's Express Entry system is points-based and highly transparent. High scorers get Invitations to Apply (ITAs) for Permanent Residency. Processing time: 6 months. Provincial Nominee Programs offer additional pathways." },
@@ -121,7 +121,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-us-passport",
     title: "Best Countries for US Passport Holders",
     metaTitle: "Best Countries for US Passport Holders to Live or Retire (2025)",
-    description: "Top relocation and residency destinations for American citizens, covering visa-free access, tax implications, and expat communities.",
+    description: "Best countries for US passport holders to live abroad — Panama, Portugal, Mexico, Costa Rica, and Colombia ranked on visa access, tax treatment, and lifestyle.",
     intro: "The US passport offers visa-free access to 186 countries, making Americans incredibly mobile. However, the US is unique in taxing citizens on worldwide income regardless of where they live — making smart country selection crucial for US expats. These countries offer the best combination of lifestyle, tax efficiency, and ease of entry for Americans.",
     countries: [
       { country: "Panama", slug: "panama", score: 94, highlight: "Visa-free + Friendly Nations Visa", details: "Americans top the list of Panama expats. The Friendly Nations Visa grants permanent residency easily. Panama uses the US dollar, has no tax on foreign income, and Panama City has excellent infrastructure. Just 3 hours from Miami." },
@@ -146,7 +146,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-uk-passport",
     title: "Best Countries for UK Passport Holders",
     metaTitle: "Best Countries for British Expats to Live or Retire Abroad (2025)",
-    description: "Top destinations for British expats after Brexit, covering visa options, healthcare reciprocals, pension portability, and cost of living.",
+    description: "Best countries for British expats after Brexit — Spain, Portugal, UAE, and Australia compared on visa options, pension portability, and cost of living.",
     intro: "Post-Brexit, British passport holders have lost automatic EU residency rights — making country selection more complex. The good news: the UK passport remains one of the world's most powerful, with visa-free access to 187 countries. These countries offer the best quality of life, visa accessibility, and expat infrastructure for British citizens.",
     countries: [
       { country: "Spain", slug: "spain", score: 94, highlight: "Non-Lucrative/Digital Nomad Visa", details: "Over 300,000 British expats live in Spain — the most popular destination for UK citizens. The Costa del Sol, Alicante, and Mallorca have thriving British communities. Post-Brexit requires a Non-Lucrative Visa (€2,400/month income) or work visa." },
@@ -171,7 +171,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-nigerian-passport",
     title: "Best Countries for Nigerian Passport Holders",
     metaTitle: "Best Countries for Nigerians to Live, Work & Study Abroad (2025)",
-    description: "Best relocation destinations for Nigerian citizens covering visa-on-arrival access, work opportunities, diaspora communities, and pathway to permanent residency.",
+    description: "Best relocation destinations for Nigerian passport holders — Canada, UK, UAE, and Ghana ranked on visa access, diaspora communities, and pathway to residency.",
     intro: "Nigerian passport holders face more visa requirements than Western passport holders, but excellent relocation opportunities still abound. Countries across Africa, the Middle East, and beyond offer accessible pathways, and Nigeria's large diaspora means established communities in many cities worldwide. These are the most accessible and rewarding destinations for Nigerian citizens.",
     countries: [
       { country: "Canada", slug: "canada", score: 88, highlight: "Express Entry + Study-to-PR pathway", details: "Canada has one of the world's largest Nigerian diaspora communities. Express Entry, Provincial Nominee Programs, and the Study Permit → PGWP → PR pathway are well-established. Nigerian credentials are increasingly recognised." },
@@ -196,7 +196,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-remote-workers",
     title: "Best Countries for Remote Workers",
     metaTitle: "Best Countries for Remote Workers in 2025 — Tax, Visas & Lifestyle",
-    description: "Top countries for people who work remotely, comparing internet infrastructure, visa options, tax implications, and cost of living.",
+    description: "Best countries for remote workers in 2025 — Estonia, Georgia, Portugal, and Colombia ranked on internet speed, nomad visa, cost of living, and lifestyle.",
     intro: "Remote work has fundamentally changed where people choose to live. The best countries for remote workers combine fast and reliable internet, clear legal frameworks for long-term stays, affordable cost of living, and the infrastructure and community that support a productive work-from-anywhere lifestyle.",
     countries: [
       { country: "Estonia", slug: "estonia", score: 95, highlight: "World's best digital infrastructure + e-Residency", details: "Estonia is the gold standard for remote-work infrastructure. 98% broadband coverage, the world's most digital government, e-Residency for running EU companies, and a Digital Nomad Visa. Tallinn is a UNESCO world heritage city." },
@@ -221,7 +221,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "safest-countries-to-live",
     title: "Safest Countries in the World to Live",
     metaTitle: "Safest Countries in the World for Expats in 2025",
-    description: "The world's safest countries to live in for expats, ranked by crime index, political stability, healthcare access, and personal safety metrics.",
+    description: "The world's safest countries for expats — Iceland, Singapore, Japan, Norway, and Portugal ranked by crime index, political stability, and personal safety.",
     intro: "Personal safety is non-negotiable when choosing where to live. The safest countries combine low crime rates, political stability, strong rule of law, and excellent emergency services. These rankings draw from the Global Peace Index, Numbeo Crime Index, and expat surveys to identify where you're genuinely safest to live as a foreigner.",
     countries: [
       { country: "Iceland", slug: "iceland", score: 98, highlight: "#1 Global Peace Index", details: "Iceland has topped the Global Peace Index for 15 consecutive years. Violent crime is essentially non-existent — police don't routinely carry guns. The biggest risks are driving on icy roads and extreme weather." },
@@ -246,7 +246,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     slug: "best-countries-for-students",
     title: "Best Countries to Study Abroad",
     metaTitle: "Best Countries for International Students in 2025",
-    description: "Top study destinations for international students, covering tuition fees, post-study work rights, scholarship availability, and quality of education.",
+    description: "Best countries for international students in 2025 — Germany, Canada, Australia, and Netherlands ranked on tuition fees, post-study work rights, and residency.",
     intro: "Study abroad offers more than a degree — it's a pathway to global experience, international networks, and often permanent residency in highly desirable countries. The best countries for international students combine world-class universities, affordable or free tuition, strong post-study work rights, and clear pathways to residency.",
     countries: [
       { country: "Germany", slug: "germany", score: 95, highlight: "Free tuition at public universities", details: "German public universities charge no tuition fees (only semester admin fees of ~€200–500). Germany has 50+ world-ranked universities including TU Munich, LMU Munich, and Heidelberg. Engineering, computer science, and natural sciences are particularly strong. Post-study work right of 18 months." },
@@ -267,3 +267,7 @@ export const BEST_CONTENT: Record<string, BestContent> = {
     ],
   },
 };
+
+export function getBestContent(category: string): BestContent | undefined {
+  return BEST_CONTENT[category];
+}

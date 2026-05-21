@@ -5,6 +5,8 @@ import { GUIDE_COUNTRIES } from '@/lib/countries';
 import { GUIDE_CONTENT } from '@/lib/guideContent';
 import { COST_INDEX_DATA } from '@/lib/countries';
 import { ArrowRight, MapPin } from 'lucide-react';
+import { Breadcrumb } from '@/components/Breadcrumb';
+import { toSlug } from '@/lib/utils/toSlug';
 
 export const metadata: Metadata = {
   title: 'Relocation Guides — 50+ Country Guides | RelocIQ',
@@ -14,7 +16,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Relocation Guides — 50+ Countries | RelocIQ',
     description: 'Free visa, cost of living, and expat guides for 50+ countries worldwide.',
-    type: 'website',
+    type: 'article',
   },
 };
 
@@ -31,7 +33,7 @@ const TIER_STYLE: Record<string, string> = {
 
 export default function GuidesIndex() {
   const costMap = Object.fromEntries(
-    COST_INDEX_DATA.map(d => [d.country.toLowerCase().replace(/\s+/g, '-'), d])
+    COST_INDEX_DATA.map(d => [toSlug(d.country), d])
   );
 
   const grouped: Record<string, typeof GUIDE_COUNTRIES> = {
@@ -42,7 +44,7 @@ export default function GuidesIndex() {
   };
 
   for (const country of GUIDE_COUNTRIES) {
-    const slug = country.toLowerCase().replace(/\s+/g, '-');
+    const slug = toSlug(country);
     const tier = costMap[slug]?.tier ?? 'other';
     (grouped[tier] ?? grouped.other).push(country);
   }
@@ -51,6 +53,10 @@ export default function GuidesIndex() {
     <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
       <Header />
       <main className="container mx-auto px-4 py-10 max-w-5xl">
+        <Breadcrumb items={[
+          { name: 'Home', href: '/' },
+          { name: 'Guides' },
+        ]} />
 
         <div className="mb-8">
           <p className="text-blue-500 text-sm font-medium uppercase tracking-wide mb-1">Browse All</p>
@@ -63,7 +69,7 @@ export default function GuidesIndex() {
         </div>
 
         {/* Quick stats */}
-        <div className="grid grid-cols-3 gap-3 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8">
           {[
             { label: 'Total guides', value: `${GUIDE_COUNTRIES.length}` },
             { label: 'Budget destinations', value: `${grouped.budget.length}` },
@@ -90,7 +96,7 @@ export default function GuidesIndex() {
               </div>
               <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-3">
                 {countries.map(country => {
-                  const slug = country.toLowerCase().replace(/\s+/g, '-');
+                  const slug = toSlug(country);
                   const guide = GUIDE_CONTENT[slug];
                   const cost = costMap[slug];
                   return (
@@ -134,7 +140,7 @@ export default function GuidesIndex() {
             <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">More Destinations</h2>
             <div className="flex flex-wrap gap-2">
               {grouped.other.map(country => {
-                const slug = country.toLowerCase().replace(/\s+/g, '-');
+                const slug = toSlug(country);
                 return (
                   <Link
                     key={slug}

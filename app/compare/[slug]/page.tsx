@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
-import { COMPARE_CONTENT } from '@/lib/compareContent';
+import { COMPARE_CONTENT, getCompareContent } from '@/lib/compareContent';
 import { COMPARE_SLUGS } from '@/lib/countries';
 import { CheckCircle2, XCircle, Trophy, ArrowRight, Minus } from 'lucide-react';
+import { BreadcrumbLD } from '@/components/BreadcrumbLD';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -16,12 +18,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
-  const content = COMPARE_CONTENT[slug];
+  const content = getCompareContent(slug);
   if (!content) return {};
   return {
-    title: `${content.metaTitle} | RelocIQ`,
+    title: content.metaTitle,
     description: content.description,
-    alternates: { canonical: `/compare/${slug}` },
+    alternates: { canonical: `https://relociq.com/compare/${slug}` },
     openGraph: {
       title: content.metaTitle,
       description: content.description,
@@ -32,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ComparePage({ params }: Props) {
   const { slug } = await params;
-  const content = COMPARE_CONTENT[slug];
+  const content = getCompareContent(slug);
   if (!content) notFound();
 
   const otherSlugs = COMPARE_SLUGS.filter(s => s !== slug);
@@ -45,6 +47,7 @@ export default async function ComparePage({ params }: Props) {
     author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     datePublished: '2024-01-01',
+    dateModified: '2025-05-01',
     url: `https://relociq.com/compare/${slug}`,
   };
 
@@ -58,9 +61,20 @@ export default async function ComparePage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbLD items={[
+        { name: 'Home', href: '/' },
+        { name: 'Compare', href: '/compare' },
+        { name: content.title.split('—')[0].trim(), href: `/compare/${slug}` },
+      ]} />
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
         <Header />
         <main className="container mx-auto px-4 py-8 max-w-4xl">
+          <Breadcrumb items={[
+            { name: 'Home', href: '/' },
+            { name: 'Compare', href: '/compare' },
+            { name: content.title.split('—')[0].trim() },
+          ]} />
+
           {/* Hero */}
           <div className="bg-gradient-to-r from-slate-900 to-blue-900 rounded-2xl p-8 mb-8 text-white">
             <p className="text-blue-300 text-sm font-medium uppercase tracking-wide mb-3">Country Comparison</p>

@@ -7,6 +7,8 @@ import { CITY_CONTENT } from '@/lib/cityContent';
 import { GUIDE_CITY_SLUGS } from '@/lib/countries';
 import { getCityPhoto } from '@/lib/photos';
 import { CheckCircle2, MapPin, Wifi, Shield, Bus, Sun, Monitor, Star, ArrowRight } from 'lucide-react';
+import { BreadcrumbLD } from '@/components/BreadcrumbLD';
+import { Breadcrumb } from '@/components/Breadcrumb';
 import { CityBreakdownChart } from '@/components/CostBreakdownChart';
 
 interface Props {
@@ -21,14 +23,20 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { city } = await params;
   const content = CITY_CONTENT[city];
   if (!content) return {};
+  const ogImage = getCityPhoto(city, 1200, 630);
   return {
     title: `Living in ${content.city} — Cost, Neighbourhoods & Nomad Guide | RelocIQ`,
     description: content.overview.slice(0, 155),
-    alternates: { canonical: `/cities/${city}` },
+    alternates: { canonical: `https://relociq.com/cities/${city}` },
     openGraph: {
       title: `Living in ${content.city} — Complete City Guide for Expats & Nomads`,
       description: content.overview.slice(0, 155),
       type: 'article',
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `Living in ${content.city}` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      images: [ogImage],
     },
   };
 }
@@ -49,9 +57,11 @@ export default async function CityPage({ params }: Props) {
     '@type': 'Article',
     headline: `Living in ${content.city} — Complete City Guide for Expats & Nomads`,
     description: content.overview.slice(0, 155),
+    image: heroPhoto,
     author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     datePublished: '2024-01-01',
+    dateModified: '2025-05-01',
     url: `https://relociq.com/cities/${city}`,
   };
 
@@ -61,12 +71,17 @@ export default async function CityPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbLD items={[
+        { name: 'Home', href: '/' },
+        { name: 'Cities', href: '/cities' },
+        { name: content.city, href: `/cities/${city}` },
+      ]} />
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
         <Header />
 
         {/* Hero photo */}
         <div className="relative h-56 md:h-72 w-full overflow-hidden">
-          <Image src={heroPhoto} alt={`Living in ${content.city}`} fill className="object-cover" priority unoptimized />
+          <Image src={heroPhoto} alt={`${content.city} cityscape`} fill className="object-cover" priority sizes="(max-width: 768px) 100vw, 1200px" />
           <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/40 to-transparent" />
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
             <div className="container mx-auto max-w-4xl">
@@ -82,7 +97,7 @@ export default async function CityPage({ params }: Props) {
               <div className="flex items-center gap-2 flex-wrap">
                 <div className="flex items-center gap-1.5 bg-amber-500/20 border border-amber-500/30 px-3 py-1 rounded-full">
                   <Star size={13} className="text-amber-400 fill-amber-400" />
-                  <span className="text-amber-300 text-sm font-medium">Nomad Score: {content.nomadScore}/10</span>
+                  <span className="text-amber-200 text-sm font-medium">Nomad Score: {content.nomadScore}/10</span>
                 </div>
                 <div className="flex items-center gap-1.5 bg-white/10 px-3 py-1 rounded-full">
                   <MapPin size={13} className="text-blue-300" />
@@ -94,6 +109,11 @@ export default async function CityPage({ params }: Props) {
         </div>
 
         <main className="container mx-auto px-4 py-8 max-w-4xl">
+          <Breadcrumb items={[
+            { name: 'Home', href: '/' },
+            { name: 'Cities', href: '/cities' },
+            { name: content.city },
+          ]} />
 
           <div className="grid gap-6">
             {/* Overview */}
@@ -108,6 +128,7 @@ export default async function CityPage({ params }: Props) {
               <CityBreakdownChart
                 items={content.costBreakdown}
                 monthlyBudget={content.monthlyBudget}
+                label={`Monthly cost of living breakdown for ${content.city}`}
               />
             </div>
 

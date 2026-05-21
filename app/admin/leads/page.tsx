@@ -1,6 +1,11 @@
+import type { Metadata } from 'next';
 import type { Lead } from '@prisma/client';
 import { prisma } from '@/lib/prisma';
 import { Header } from '@/components/layout/Header';
+
+export const metadata: Metadata = {
+  robots: { index: false, follow: false },
+};
 
 interface Props {
   searchParams: Promise<{ password?: string }>;

@@ -107,9 +107,10 @@ export function RelocForm({ onSubmit, initialData }: Props) {
                   <button
                     type="button"
                     onClick={() => removeDestination(i)}
+                    aria-label={`Remove destination ${i + 1}`}
                     className="p-2 text-slate-400 hover:text-red-500 transition-colors"
                   >
-                    <X size={18} />
+                    <X size={18} aria-hidden="true" />
                   </button>
                 )}
               </div>
@@ -130,10 +131,11 @@ export function RelocForm({ onSubmit, initialData }: Props) {
         {/* Income + Currency */}
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label htmlFor="monthly-income" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Monthly Income
             </label>
             <input
+              id="monthly-income"
               type="number"
               value={monthlyIncome}
               onChange={(e) => setMonthlyIncome(e.target.value)}
@@ -144,10 +146,11 @@ export function RelocForm({ onSubmit, initialData }: Props) {
             {errors.income && <p className="text-red-500 text-xs mt-1">{errors.income}</p>}
           </div>
           <div>
-            <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
+            <label htmlFor="currency" className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">
               Currency
             </label>
             <select
+              id="currency"
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
               className="w-full px-3 py-2 border border-slate-200 dark:border-slate-700 rounded-lg bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm"
@@ -170,6 +173,7 @@ export function RelocForm({ onSubmit, initialData }: Props) {
                 key={p}
                 type="button"
                 onClick={() => setPurpose(p)}
+                aria-pressed={purpose === p}
                 className={`py-2 px-3 rounded-lg text-sm font-medium border transition-all ${
                   purpose === p
                     ? 'bg-blue-500 border-blue-500 text-white'

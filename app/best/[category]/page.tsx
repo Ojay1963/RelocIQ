@@ -2,9 +2,11 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Header } from '@/components/layout/Header';
-import { BEST_CONTENT } from '@/lib/bestContent';
+import { BEST_CONTENT, getBestContent } from '@/lib/bestContent';
 import { BEST_CATEGORY_SLUGS } from '@/lib/countries';
 import { Trophy, ArrowRight, HelpCircle, ChevronRight } from 'lucide-react';
+import { BreadcrumbLD } from '@/components/BreadcrumbLD';
+import { Breadcrumb } from '@/components/Breadcrumb';
 
 interface Props {
   params: Promise<{ category: string }>;
@@ -16,12 +18,12 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { category } = await params;
-  const content = BEST_CONTENT[category];
+  const content = getBestContent(category);
   if (!content) return {};
   return {
-    title: `${content.metaTitle} | RelocIQ`,
+    title: content.metaTitle,
     description: content.description,
-    alternates: { canonical: `/best/${category}` },
+    alternates: { canonical: `https://relociq.com/best/${category}` },
     openGraph: {
       title: content.metaTitle,
       description: content.description,
@@ -32,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function BestPage({ params }: Props) {
   const { category } = await params;
-  const content = BEST_CONTENT[category];
+  const content = getBestContent(category);
   if (!content) notFound();
 
   const otherCategories = BEST_CATEGORY_SLUGS.filter(s => s !== category);
@@ -45,6 +47,7 @@ export default async function BestPage({ params }: Props) {
     author: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     publisher: { '@type': 'Organization', name: 'RelocIQ', url: 'https://relociq.com' },
     datePublished: '2024-01-01',
+    dateModified: '2025-05-01',
     url: `https://relociq.com/best/${category}`,
   };
 
@@ -54,14 +57,25 @@ export default async function BestPage({ params }: Props) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
+      <BreadcrumbLD items={[
+        { name: 'Home', href: '/' },
+        { name: 'Best Of', href: '/best' },
+        { name: content.title, href: `/best/${category}` },
+      ]} />
       <div className="min-h-screen bg-slate-50 dark:bg-slate-950">
         <Header />
         <main className="container mx-auto px-4 py-8 max-w-4xl">
+          <Breadcrumb items={[
+            { name: 'Home', href: '/' },
+            { name: 'Best Of', href: '/best/best-countries-for-digital-nomads' },
+            { name: content.title },
+          ]} />
+
           {/* Hero */}
           <div className="bg-gradient-to-r from-amber-900/80 to-slate-900 rounded-2xl p-8 mb-8 text-white">
             <div className="flex items-center gap-2 mb-3">
               <Trophy size={18} className="text-amber-400" />
-              <span className="text-amber-300 text-sm font-medium uppercase tracking-wide">Best Of Rankings</span>
+              <span className="text-amber-200 text-sm font-medium uppercase tracking-wide">Best Of Rankings</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold mb-4">{content.title}</h1>
             <p className="text-slate-300 text-sm leading-relaxed max-w-2xl">{content.description}</p>
