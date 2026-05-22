@@ -43,7 +43,7 @@ export function VisaCard({ data }: Props) {
           <div className="flex items-center gap-1.5 text-slate-500 dark:text-slate-400 text-xs mb-1">
             <DollarSign size={12} /> Approximate Cost
           </div>
-          <p className="text-sm font-semibold text-slate-900 dark:text-white">{data.cost || 'Free'}</p>
+          <p className="text-sm font-semibold text-slate-900 dark:text-white">{data.cost || 'N/A'}</p>
         </div>
       </div>
 

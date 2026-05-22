@@ -1,4 +1,4 @@
-import { ExternalLink, Shield, CreditCard, Briefcase } from 'lucide-react';
+import { ExternalLink, Shield, Umbrella, CreditCard, Briefcase } from 'lucide-react';
 
 const AFFILIATES = [
   {
@@ -6,16 +6,16 @@ const AFFILIATES = [
     title: 'Visa Agencies',
     description: 'Expert visa consultants to handle your application end-to-end.',
     cta: 'Get a Free Quote',
-    href: '#visa-agencies',
+    href: 'https://www.ivisa.com',
     color: 'text-blue-500',
     bg: 'bg-blue-50 dark:bg-blue-950/30',
   },
   {
-    Icon: Shield,
+    Icon: Umbrella,
     title: 'Travel Insurance',
     description: 'Comprehensive expat and travel insurance for your move abroad.',
     cta: 'Compare Plans',
-    href: '#travel-insurance',
+    href: 'https://safetywing.com',
     color: 'text-emerald-500',
     bg: 'bg-emerald-50 dark:bg-emerald-950/30',
   },
@@ -24,7 +24,7 @@ const AFFILIATES = [
     title: 'Expat Banking',
     description: 'Multi-currency accounts with no hidden fees for global citizens.',
     cta: 'Open Account',
-    href: '#expat-banking',
+    href: 'https://wise.com',
     color: 'text-purple-500',
     bg: 'bg-purple-50 dark:bg-purple-950/30',
   },
@@ -33,7 +33,7 @@ const AFFILIATES = [
     title: 'Remote Job Boards',
     description: 'Thousands of remote-friendly roles from top global employers.',
     cta: 'Browse Jobs',
-    href: '#remote-jobs',
+    href: 'https://weworkremotely.com',
     color: 'text-amber-500',
     bg: 'bg-amber-50 dark:bg-amber-950/30',
   },
@@ -56,6 +56,8 @@ export function AffiliateSection() {
             </div>
             <a
               href={href}
+              target="_blank"
+              rel="noopener noreferrer"
               className="mt-auto text-xs font-semibold text-blue-500 hover:text-blue-600 flex items-center gap-1 transition-colors"
             >
               {cta} <ExternalLink size={11} />
